@@ -16,7 +16,8 @@ unset($_SESSION['temp_id2']);
 unset($_SESSION['temp_id3']);
 unset($_SESSION['pl_id']);
 unset($_SESSION['view']);
-
+unset($_SESSION['tag1']);
+unset($_SESSION['tag2']);
 
 echo $userID;
 
@@ -54,8 +55,9 @@ if(isset($_POST['submit'])>0)
 
 	 $tag= "%".$_POST['tag']."%";
 	 $tag2="%".$_POST['tag2']."%";	
-	 echo $tag;
-	 echo $tag2;
+
+	//  echo $tag;
+	//  echo $tag2;
 
 	 if ($tag == $tag2)
 	 {
@@ -155,6 +157,9 @@ if(isset($_POST['submit'])>0)
 		$_SESSION['temp_id2']=$temp_id2;
 		$_SESSION['temp_id3']=$temp_id3;
 		$_SESSION['pl_id']=$pl_id;
+		$_SESSION['tag1']=$_POST['tag'];
+		$_SESSION['tag2']=$_POST['tag2'];
+
 
 		echo "<script>
 		 alert('Created successfully');
@@ -207,7 +212,9 @@ if(isset($_POST['cmPlans'])>0)
 	<link rel="stylesheet" href="home.css">
 	<link rel="icon" href="img/it.png" type="image/x-icon">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
+
 </head>
+
 
 
 <div class="bg-wrapper">
@@ -237,7 +244,7 @@ if(isset($_POST['cmPlans'])>0)
 							<div class="sec-1">
 								<h3>Location</h3>
 								<!-- <label for="location"><h3>Choose a location:</h3></label> -->
-								<select name="location">
+								<select name="location" required>
 									<option value="Perak">Perak</option>
 									<option value="Selangor">Selangor</option>
 								</select>
@@ -247,19 +254,19 @@ if(isset($_POST['cmPlans'])>0)
 						<div class="create-sec">
 							<div class="sec-1">
 								<h3>Name Your Plan</h3>
-								<input type="text" maxlength="256" name="pl_name" placeholder="Plan Name">
+								<input type="text" maxlength="256" name="pl_name" placeholder="Plan Name" required>
 							</div>
 						</div>
 
 						<div class="create-sec">
 							<h3>Main Preference<h3>
-							<select name="userCate">
+							<select name="userCate" required>
 								<option value="Indoors">Indoors</option>
 								<option value="Outdoors">Outdoors</option>
 							</select><br>
 
 							<h3>Activities Preferences<h3>
-							<select name="tag">
+							<select name="tag" required>
 								<option value="culture">Culture</option>
 								<option value="relaxing">Relaxing</option>
 								<option value="romantic">Romantic</option>
@@ -268,7 +275,7 @@ if(isset($_POST['cmPlans'])>0)
 								<option value="shopping">Shopping</option>
 							</select>
 
-							<select name="tag2">
+							<select name="tag2" required>
 								<option value="culture">Culture</option>
 								<option value="relaxing">Relaxing</option>
 								<option value="romantic">Romantic</option>
@@ -281,9 +288,9 @@ if(isset($_POST['cmPlans'])>0)
 						<div class="create-sec">
 							<h3>Dates</h3>
 							<h5>Start</h5>
-							<input class="date-wrap" type="date" name="startDate">
+							<input id="dateField" class="date-wrap" type="date" name="startDate" min="<?= date('Y-m-d') ?>" required>
 							<h5>End</h5>
-							<input class="date-wrap" type="date" name="endDate">
+							<input id="dateField" class="date-wrap" type="date" name="endDate" min="<?= date('Y-m-d') ?>" required>
 						</div>
 					</div>
 					<input class="createBtn" type="submit" value="Start planning!" name="submit">

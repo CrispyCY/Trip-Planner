@@ -270,8 +270,8 @@ if(isset($_POST['upV'])>0)
 			<h2>Like this plan?</h2>
 			<h3>Duplicate this plan</h3>
 			<form action="" method="post" autocomplete="off">
-			<input type="date" name="startDate" required>
-			<input type="date" name="endDate" required><br><br>
+			<input type="date" name="startDate" required min="<?= date('Y-m-d') ?>">
+			<input type="date" name="endDate" required min="<?= date('Y-m-d') ?>"><br><br>
 			<button class="createBtn" type="submit" value="dups" name="dups">Duplicate</button>
 			</form>
 

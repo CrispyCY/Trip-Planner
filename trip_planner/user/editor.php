@@ -158,7 +158,7 @@ if(isset($_POST['delete'])>0)
 			</h4>
 
 			<form action="" method="post" autocomplete="off">
-			<input class="new-dur" type="number" value="2" min="1" max="7" name="modDur" ><br><br>
+			<input class="new-dur" type="number" value="2" min="1" max="7" name="modDur" required><br><br>
 			<input class="createBtn" type="submit" value="Save" name="submit">
 			</form>
 		</div>
