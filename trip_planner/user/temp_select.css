@@ -186,3 +186,21 @@ table, th, td {
     /* font-family: Lato,sans-serif ; */
     /* padding-top: 80px; */
 }
+
+.mp-span1{
+    margin-top: 10px;
+}
+
+.mp-span2{
+    font-size:medium;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.mp-span3{
+    font-size:small;
+    /* margin-top: 15px; */
+    color: rgba(255, 255, 255, 0);
+
+}

@@ -210,7 +210,7 @@ if(isset($_POST['review'])>0)
 </div>
 <br><br>
 
-	<textarea name="content" rows="4" cols="50" placeholder="Your review"></textarea><br><br>
+	<textarea name="content" rows="4" cols="50" placeholder="Your review"  required></textarea><br><br>
 
 	<button class="createBtn" type="submit" value="review" name="review" >Post review</button>
 </form>

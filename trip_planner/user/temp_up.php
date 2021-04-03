@@ -39,6 +39,17 @@ if(isset($_POST['save_id'])>0)
 	</script>";
 }
 
+if(isset($_POST['viewAtt'])>0)
+{	
+	$view = $_POST['viewAtt'];
+	$_SESSION['view'] = $view;
+	echo "<script>
+	alert('$view');
+	window.location= 'attraction_detail.php';
+   </script>";
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -60,6 +71,7 @@ if(isset($_POST['save_id'])>0)
 	<li><a href="#edt-sec">Edit Plan</a></li>
 	<li><a href="#top">Top</a></li>edt-sec
 	<li><a href="home.php">Home</a></li> -->
+	<li><a href="#sv">Save</a></li>
 	<li><a href="temp_select.php">Back</a></li>
 
 
@@ -70,9 +82,11 @@ if(isset($_POST['save_id'])>0)
 		while($getStLst = mysqli_fetch_array($getSt)) 
 	{
 		if ($getStLst['location'] == "PERAK") {
+			$_SESSION['state'] = "st1";
 			echo "bg-wrapper";
 		}
 		else{
+			$_SESSION['state'] = "st2";
 			echo "bg-wrapper2";
 		}
 	}
@@ -182,7 +196,7 @@ if(isset($_POST['save_id'])>0)
 	</div>
 
 
-<form class="temp_frm" action="" method="post" autocomplete="off">
+<form id="sv" class="temp_frm" action="" method="post" autocomplete="off">
 <button class="createBtn" type="submit" value="<?php echo $view_temp; ?>" name="save_id">Save This Plan!</button>
 </form>
 

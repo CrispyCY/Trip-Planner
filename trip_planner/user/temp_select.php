@@ -15,6 +15,10 @@ $temp_id3 = $_SESSION['temp_id3'];
 echo $temp_id3;
 $pl_id = $_SESSION['pl_id'];
 echo $pl_id;
+$tag1 = $_SESSION['tag1'];
+$tag2 = $_SESSION['tag2'];
+echo $tag1;
+echo $tag2;
 
 unset($_SESSION['view_temp']);
 
@@ -69,18 +73,21 @@ if(isset($_POST['temp_id'])>0)
 			<form action="" method="post" autocomplete="off">
 
 				<div class="plan-sec">
-					<h2>Pick a plan</h2>
+					<h2>We have created 3 plans for you to choose. Pick a plan!</h2>
 					<div class="mp-wrapper">
 						<button class="mpBtn" type="submit" value="<?php echo $temp_id; ?>" name="temp_id">
 							<div class="mp-span">Plan 1</div>
+							<div class="mp-span1">Balanced between <?php echo $tag1 ?> and <?php echo $tag2 ?></div>
 							<div class="mp-span3">View &#x1F50D;</div>
 						</button>
 						<button class="mpBtn" type="submit" value="<?php echo $temp_id2; ?>" name="temp_id">
 							<div class="mp-span">Plan 2</div>
+							<div class="mp-span1">Focus more on <?php echo $tag1 ?></div>
 							<div class="mp-span3">View &#x1F50D;</div>
 						</button>
 						<button class="mpBtn" type="submit" value="<?php echo $temp_id3; ?>" name="temp_id">
 							<div class="mp-span">Plan 3</div>
+							<div class="mp-span1">Focus more on <?php echo $tag2 ?></div>
 							<div class="mp-span3">View &#x1F50D;</div>
 						</button>
 

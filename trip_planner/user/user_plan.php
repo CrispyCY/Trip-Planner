@@ -244,15 +244,15 @@ if(isset($_POST['delete'])>0)
 			<h2>Edit Plan</h2>
 			<h3>Edit Trip Name</h3>
 			<form action="" method="post" autocomplete="off">
-			<input type="text" maxlength="256" name="edtName" placeholder="New Trip Name">
+			<input type="text" maxlength="256" name="edtName" placeholder="New Trip Name" required>
 			<br><br>
 			<button class="createBtn" type="submit" value="edtPln" name="edtPln">Save</button>
 			</form>
 
 			<h3>Edit Dates</h3>
 			<form action="" method="post" autocomplete="off">
-			<input type="date" name="startDate">
-			<input type="date" name="endDate">
+			<input type="date" name="startDate" min="<?= date('Y-m-d') ?>" required>
+			<input type="date" name="endDate" min="<?= date('Y-m-d') ?>" required>
 			<br><br>
 			<button class="createBtn" type="submit" value="edtDts" name="edtDts">Save</button>
 			</form>
@@ -260,7 +260,7 @@ if(isset($_POST['delete'])>0)
 			<h3>Delete plan</h3>
 			<h5>*Please note that once the plan is deleted, the action cannot be revert!</h5>
 			<form action="" method="post" autocomplete="off">
-			<button class="dltBtn" type="delete" value="delete" name="delete">Delete</button>
+			<button onClick="javascript: return confirm('Please confirm deletion');" class="dltBtn" type="delete" value="delete" name="delete">Delete</button>
 			</form>
 		</div>
 
