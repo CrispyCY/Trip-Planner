@@ -3,19 +3,6 @@ session_start();
 include_once '../database.php';
 // $userID = $_SESSION["username"];
 $userID = $_SESSION['userID'];
-unset($_SESSION['sltPln']);
-unset($_SESSION['viewAtt']);
-unset($_SESSION['state']);
-unset($_SESSION['add']);
-unset($_SESSION['addRv']);
-unset($_SESSION['viewRv']);
-unset($_SESSION['frView']);
-unset($_SESSION['viewPln']);
-unset($_SESSION['temp_id']);
-unset($_SESSION['temp_id2']);
-unset($_SESSION['temp_id3']);
-unset($_SESSION['pl_id']);
-unset($_SESSION['view']);
 
 
 echo $userID;
@@ -39,7 +26,6 @@ if(isset($_POST['myPlanLct'])>0)
 	$sltPln=$_POST['myPlanLct'];
 	$_SESSION['sltPln']=$sltPln;
 	echo "<script>
-	 alert('$sltPln');
 	 window.location= 'user_plan.php';
 	</script>";
 }

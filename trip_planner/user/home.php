@@ -1,7 +1,6 @@
 <?php
 session_start();
 include_once '../database.php';
-// $userID = $_SESSION["username"];
 $userID = $_SESSION['userID'];
 unset($_SESSION['sltPln']);
 unset($_SESSION['viewAtt']);
@@ -31,10 +30,6 @@ $dtNow = date("Y-m-d");
 $myPlan0 = mysqli_query($con,"SELECT COUNT(planID) AS plCount FROM plan WHERE userID = '$userID' ;");
 $allPlns = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE userID = '$userID' ORDER BY startDate DESC;");
 
-// $myPlan = mysqli_query($con,"SELECT * FROM plan WHERE userID = '$userID' AND ('$dtNow' BETWEEN startDate AND endDate);");
-// $myPlan1 = mysqli_query($con,"SELECT * FROM plan WHERE userID = '$userID' AND dups = 'N' AND startDate > '$dtNow';");
-// $myPlan2 = mysqli_query($con,"SELECT * FROM plan WHERE userID = '$userID' AND endDate < '$dtNow';");
-// $myPlan3 = mysqli_query($con,"SELECT * FROM plan WHERE userID = '$userID' AND dups = 'Y' AND startDate > '$dtNow' AND ('$dtNow' NOT BETWEEN startDate AND endDate);");
 
 if(isset($_POST['submit'])>0)
 {	
@@ -48,7 +43,6 @@ if(isset($_POST['submit'])>0)
 		$stateID = 'st2';
 	}
 	 $pl_name= ucwords($_POST['pl_name']);
-	//  $duration=$_POST['duration'];
 	 $userCate=$_POST['userCate'];
 	 $startDate=$_POST['startDate'];
 	 $endDate=$_POST['endDate'];
@@ -69,15 +63,10 @@ if(isset($_POST['submit'])>0)
 	 }
 
 	 else{
-					//  $result = $con->query("SELECT COUNT(planID) FROM plan WHERE userID = '$userID';");
-			//  $counter = $result->fetch_row();
-			//  $newCount = $counter[0] + 1;
-			//  $pl_id = $userID.'_pl'.strval($newCount);
 			$pl_id = $userID.'_pl'.$rand3;
 
 
 			$newPln = mysqli_query($con,"INSERT INTO `plan`(`planID`, `location`, `planName`, `startDate`, `endDate`, `dups`, `userID`) VALUES ('$pl_id', '$userLct','$pl_name', '$startDate', '$endDate', 'N', '$userID');");
-		//  mysqli_query($con, $sql);
 
 			$calcDur = mysqli_query($con,"SELECT DATEDIFF(endDate, startDate) AS DateDiff FROM plan WHERE userID = '$userID' and planID = '$pl_id';");
 
@@ -135,24 +124,6 @@ if(isset($_POST['submit'])>0)
 			}
 		}
 
-		// while($attNum = mysqli_fetch_array($attID))
-		// {
-		// 	$ttlAtt = $attNum['attID'];
-		// 	$attDur += $attNum['rcmDur'];
-		// 	if($attDur <= $ttlHr)
-		// 	{
-		// 	$sql3 = mysqli_query($con,"INSERT INTO `user_plan`(`planID`, `attID`) VALUES ('$pl_id','$ttlAtt');");
-		// 	}
-		// }
-		// echo "Error: sql3". $sql3 . "<br>" . $con->error;
-		// echo "Error: sql9". $sql9 . "<br>" . $con->error;
-		// echo "Error: sql5". $sql5 . "<br>" . $con->error;
-	
-		$con ->close();   
-		//  $temp_id=$_POST['temp_id'];
-		//  $temp_id2=$_POST['temp_id2'];
-		//  $temp_id3=$_POST['temp_id3'];
-
 		$_SESSION['temp_id']=$temp_id;
 		$_SESSION['temp_id2']=$temp_id2;
 		$_SESSION['temp_id3']=$temp_id3;
@@ -162,7 +133,7 @@ if(isset($_POST['submit'])>0)
 
 
 		echo "<script>
-		 alert('Created successfully');
+		 alert('Please wait while we generate the best trip for you...');
 		 window.location= 'temp_select.php';
 		</script>";
 
@@ -175,7 +146,6 @@ if(isset($_POST['myPlanLct'])>0)
 	$sltPln=$_POST['myPlanLct'];
 	$_SESSION['sltPln']=$sltPln;
 	echo "<script>
-	 alert('$sltPln');
 	 window.location= 'user_plan.php';
 	</script>";
 }
@@ -185,7 +155,6 @@ if(isset($_POST['state'])>0)
 	$state=$_POST['state'];
 	$_SESSION['state']=$state;
 	echo "<script>
-	 alert('$state');
 	 window.location= 'attraction.php';
 	</script>";
 }
@@ -195,7 +164,6 @@ if(isset($_POST['cmPlans'])>0)
 	$state=$_POST['cmPlans'];
 	$_SESSION['state']=$state;
 	echo "<script>
-	 alert('$state');
 	 window.location= 'community_plans.php';
 	</script>";
 }
@@ -222,7 +190,6 @@ if(isset($_POST['cmPlans'])>0)
 		<ul>
 			<a href="home.php" class="logo"><h1>Trip Planner</h1></a>
 			<li><a href="logout.php">Log Out</a></li>    
-			<!-- <li><a href="../student/profile.php">User Profile</a></li> -->
 			<li><a href="forum.php">Forum</a></li>
 			<li><a href="edt_user.php">User Profile</a></li>
 			<li><a href="home.php">Home</a></li>
@@ -243,7 +210,6 @@ if(isset($_POST['cmPlans'])>0)
 						<div class="create-sec">
 							<div class="sec-1">
 								<h3>Location</h3>
-								<!-- <label for="location"><h3>Choose a location:</h3></label> -->
 								<select name="location" required>
 									<option value="Perak">Perak</option>
 									<option value="Selangor">Selangor</option>
@@ -365,9 +331,6 @@ if(isset($_POST['cmPlans'])>0)
 			<button class="br-wrapper" type="submit" value="st1" name="cmPlans">Perak</button>
 			<button class="br-wrapper" type="submit" value="st2" name="cmPlans">Selangor</button>
 		</form>
-
-		<!-- <a href="forum.php" class="register-link">Forum</a>
-		<a href="logout.php" class="register-link">Log Out</a> -->
 		</div>
 	</div>
 </div>

@@ -22,7 +22,7 @@ if(isset($_POST['review'])>0)
 	$rating = $_POST['rating'];
 	$newAtt = mysqli_query($con,"INSERT INTO `review` VALUES ('$reviewID','$content','$rating','$dtNow','$addRv','$userID');");
 	echo "<script>
-	alert('Added $content');
+	alert('Review posted!');
 	window.location= 'home.php';
    </script>";
 

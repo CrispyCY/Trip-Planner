@@ -24,8 +24,8 @@ if(isset($_POST['edt_pass']))
             mysqli_close($con);
             
             echo "<script>
-                alert('Saved successfully');
-                window.location= 'home.php';
+                alert('Saved successfully.');
+                window.location= 'edt_user.php';
             </script>";
 					 
 	}
@@ -54,8 +54,8 @@ if(isset($_POST['edt_info']))
         mysqli_close($con);
         
         echo "<script>
-            alert('Saved successfully');
-            window.location= 'home.php';
+            alert('Saved successfully.');
+            window.location= 'edt_user.php';
         </script>";
 		 
 	}

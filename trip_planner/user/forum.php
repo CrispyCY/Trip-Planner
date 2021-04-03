@@ -24,7 +24,6 @@ if(isset($_POST['frView'])>0)
 	$frView = $_POST['frView'];
 	$_SESSION['frView'] = $frView;
 	echo "<script>
-	alert('$frView');
 	window.location= 'forum_post.php';
    </script>";
 
@@ -36,7 +35,7 @@ if(isset($_POST['frPost'])>0)
     $content=ucfirst($_POST['content']);
     $newPost = mysqli_query($con,"INSERT INTO `forum` VALUES ('$frmID','$title','$content','$dtNow','$userID');");
 	echo "<script>
-	alert('Error: sql5. $con->error;');
+	alert('Topic posted!');
 	window.location= 'forum.php';
    </script>";
 

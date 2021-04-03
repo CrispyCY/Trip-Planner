@@ -11,38 +11,16 @@ $add = $_SESSION['add'];
 echo $add;
 
 
-// $plnInfo = mysqli_query($con,"SELECT * FROM plan WHERE planID = '$sltPln';");
-// $plnDtl = mysqli_query($con,"SELECT * FROM attraction INNER JOIN user_plan ON attraction.attID = user_plan.attID WHERE user_plan.planID = '$sltPln' AND attraction.attID = '$viewAtt';");
-// $allAtt = mysqli_query($con,"SELECT * FROM user_plan INNER JOIN attraction ON attraction.attID = user_plan.attID WHERE user_plan.planID = '$sltPln';WHERE stateID = '$state';");
-
-
-// check if its in plan, yes prompt plan name, no prompt option to add
-
-// $count = mysqli_query($con,"SELECT COUNT(planID) FROM ((user_plan INNER JOIN attraction ON attraction.attID = user_plan.attID) 
-// INNER JOIN plan ON user_plan.planID = plan.planID) WHERE plan.userID = '$userID' AND attraction.stateID = '$state';");
-// $result = $con->query("SELECT COUNT(DISTINCT plan.planID) FROM ((user_plan INNER JOIN attraction ON attraction.attID = user_plan.attID) 
-// INNER JOIN plan ON user_plan.planID = plan.planID) WHERE plan.userID = '$userID' AND attraction.stateID = '$state';");
-// $counter = $result->fetch_row();
-// $newCount = $counter[0];
-// echo "yes".$newCount;
-
 $usrPln = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM ((user_plan INNER JOIN attraction ON attraction.attID = user_plan.attID) 
 INNER JOIN plan ON user_plan.planID = plan.planID) WHERE plan.userID = '$userID' AND attraction.stateID = '$state' GROUP BY plan.planID;");
-
-// if (mysqli_num_rows($usrPln) == 0){
-// 	echo "none";
-// }
-// else{
-// 	echo "error";
-// }
 
 if(isset($_POST['addAtt'])>0)
 {	
 	$addAtt = $_POST['addAtt'];
 	$newAtt = mysqli_query($con,"INSERT INTO `user_plan` VALUES ('$addAtt', '$add', 0)");
 	echo "<script>
-	alert('Added $add');
-	window.location= 'home.php';
+	alert('Attraction added!');
+	window.location= 'attraction_detail.php';
    </script>";
 
 }
