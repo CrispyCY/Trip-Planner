@@ -1,0 +1,117 @@
+body {
+    margin: 0%;
+    padding: 0%;
+    font-family: Lato,sans-serif ;
+	color: white;
+
+}
+
+.bg-wrapper{
+    background-image: url("../rsc/homepage_banner.jpg");
+    background-position: 100% 25%;
+    background-size: cover;
+    height: 100vh;
+    min-height: 400px;
+    /* width: 100vw; */
+}
+.bg-shader{
+    background: rgba(0, 0, 0, 0.315);
+    height: 100vh;
+    min-height: 400px;
+
+}
+.container{
+    padding: 3%;
+}
+
+.header-main{
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    text-shadow: 3px 3px 5px #666;
+    font-family: Lato,sans-serif ;
+}
+
+.header-wrapper{
+    color: white;
+}
+
+.content-wrapper{
+    color: white;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    /* text-shadow: 3px 3px 5px #666; */
+    font-family: Lato,sans-serif ;
+    display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: stretch;
+	-webkit-align-items: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch;
+}
+
+.descp-wrapper{
+    color: white;
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    /* text-shadow: 3px 3px 5px #666; */
+    font-family: Lato,sans-serif ;
+    flex-basis: 55%;
+    padding: 55px 30px 10px 30px;
+    border-right: solid;
+    /* border-style: solid; */
+    border-width: 2px;
+    /* border-radius: 5px; */
+
+}
+
+.login-wrapper{
+    font-size: large;
+    flex-basis: 45%;
+    padding: 10px 20px 10px 20px;
+
+}
+
+.login-form{
+    padding: 0;
+    margin: 0;
+}
+
+.login-form h3{
+    font-size: x-large;
+}
+
+.login-form a{
+    color: white;
+}
+
+.login-form a:hover{
+    color: rgb(196, 186, 48);
+}
+
+.btnSubmit{
+    color: rgb(54, 52, 52);
+    padding: 7px 10px 7px 10px;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    font-family: Lato,sans-serif ;
+    background-color: white;
+    border: 0.5px solid black;
+    border-radius: 5px;
+}
+
+.btnSubmit:hover{
+    background-color: rgb(255, 255, 255, 0.555);
+    cursor: pointer;
+
+}

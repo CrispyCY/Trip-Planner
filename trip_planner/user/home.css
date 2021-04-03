@@ -1,0 +1,289 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    margin: 0%;
+    padding: 0%;
+    /* background: rgba(0, 0, 0, 0.089); */
+
+}
+
+.bg-wrapper{
+    background-image: url("../rsc/wallpaperflare.com_wallpaper (3).jpg");
+    background-position: 100% 100%;
+    background-size: cover;
+    height: 100vh;
+    min-height: 400px;
+    /* width: 100vw; */
+    font-family: Lato,sans-serif ;
+	color: white;
+
+}
+.bg-shader{
+    background: rgba(0, 0, 0, 0.315);
+    height: 100vh;
+    min-height: 400px;
+
+}
+.container{
+    padding: 3%;
+}
+
+.logo{
+    margin-top: 0px;
+    margin-bottom: 0px;
+  
+    /* margin: 8px; */
+    /* padding: 14px 16px; */
+    color:rgb(255, 255, 255);
+    float: left;
+    font-size: 12px;
+  }
+  
+ul {
+    list-style-type: none;
+    margin: 0;
+    /* padding: 10px 20px 10px 20px; */
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.459)
+  }
+
+ul a{
+text-decoration: none;
+}
+
+li {
+float: right;
+}
+
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 20px 20px;
+text-decoration: none;
+}
+
+li a:hover {
+    background-color: white;
+    color: black;
+    transition: 300ms;
+    }
+    
+li a:active {
+background-color: white;
+color: black;
+
+}
+        
+
+.header-main{
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    /* text-shadow: 3px 3px 5px #666; */
+    /* font-family: Lato,sans-serif ; */
+}
+
+.descp-wrapper{
+    color: white;
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    /* text-shadow: 3px 3px 5px #666; */
+    font-family: Lato,sans-serif ;
+    flex-basis: 55%;
+    padding: 55px 30px 10px 30px;
+    border-right: solid;
+    /* border-style: solid; */
+    border-width: 2px;
+    /* border-radius: 5px; */
+}
+
+.create-form-wrapper{
+    text-align: center;
+}
+
+.create-wrapper{
+    font-size: large;
+    /* padding: 10px 20px 10px 20px; */
+    display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: stretch;
+	-webkit-align-items: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch;
+    flex-wrap: nowrap;
+}
+
+.create-sec{
+    flex-basis: 20%;
+    margin: 0px 7px 0px 7px;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    /* border-right: solid; */
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.164);
+    
+}
+
+.sec-1{
+    margin-top: 55px;
+}
+
+.create-sec h5{
+    margin: 5px 0px 5px 0px;
+}
+
+.createBtn{
+    color: rgb(54, 52, 52);
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    font-family: Lato,sans-serif ;
+    background-color: rgba(255, 255, 255, 0.705);
+    border: 0.5px solid black;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+.createBtn:hover{
+    background-color: rgb(255, 255, 255, 0.555);
+    cursor: pointer;
+
+}
+
+.sec-2{
+    background-image: url("../rsc/wallpaperflare.com_wallpaper (4).jpg");
+    background-position: 100% 16%;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.sec2-shader{
+    background: rgba(0, 0, 0, 0.445);
+
+}
+
+
+.sp-line{
+    margin-top: 30px;
+    border-bottom: 0.1px solid rgba(255, 255, 255, 0.548);
+
+}
+
+.container.ct-1{
+color: rgb(255, 255, 255);
+}
+
+.mp-header{
+    text-decoration: none;
+    color: inherit;
+}
+
+.mp-header:hover{
+    text-decoration: underline;
+    /* color:rgb(0, 0, 0); */
+}
+
+.mp-wrapper{
+    display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	/* -webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center; */
+	justify-content:flex-start;
+	-webkit-box-align: stretch;
+	-webkit-align-items: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch;
+    flex-wrap: nowrap;
+
+}
+
+.mpBtn{
+    flex-basis: 20%;
+    margin: 10px 10px 10px 10px;
+    padding: 40px 10px 35px 10px;
+    text-align: center;
+    /* border-right: solid; */
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.473);
+    /* background-color: rgb(255, 255, 255); */
+    font-size: large;
+    color: white;
+    
+}
+
+.mpBtn:hover{
+    margin: 5px 5px 5px 5px;
+    padding-top: 25px;
+    background-color: rgba(255, 255, 255, 0.548);
+    cursor: pointer;
+    font-size:larger;
+    transition: 110ms;
+    /* background-color: rgba(0, 0, 0, 0.486); */
+    color: black;
+}
+
+.mp-span1{
+    margin-top: 10px;
+}
+
+.mp-span2{
+    font-size:medium;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.mp-span3{
+    font-size:small;
+    /* margin-top: 15px; */
+    color: rgba(255, 255, 255, 0);
+
+}
+
+.mpBtn:hover >.mp-span3{
+    color: black;
+    transition: 100ms;
+    font-size:x-large;
+
+}
+
+.br-wrapper{
+    width: 100px;
+    height: 75px;
+    /* font-weight: bold; */
+    font-size: medium;
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.473);
+    color: white;
+}
+
+.br-wrapper:hover{
+    background-color: rgba(255, 255, 255, 0.548);
+    cursor: pointer;
+    color:black;
+    transition: 200ms;
+}

@@ -1,0 +1,133 @@
+body {
+    margin: 0%;
+    padding: 0%;
+	font-family: Lato,sans-serif ;
+	color: white;
+}
+
+.logo{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 40px;
+    /* margin: 8px; */
+    /* padding: 14px 16px; */
+    color:rgb(255, 255, 255);
+    float: left;
+    font-size: 12px;
+  }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0px;
+    /* padding: 10px 20px 10px 20px; */
+    overflow: hidden;
+    /* background-color: rgba(0, 0, 0, 0.459); */
+    background-color: black;
+    width: 100%;
+  }
+
+ul a{
+text-decoration: none;
+}
+
+li {
+float: right;
+}
+
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 20px 20px;
+text-decoration: none;
+}
+
+li a:hover {
+background-color: white;
+color: black;
+transition: 300ms;
+}
+
+li a:active {
+background-color: white;
+color: black;
+
+}
+
+.bg-wrapper{
+    background-image: url("../rsc/wallpaperflare.com_wallpaper (1).jpg");
+    background-position: 100% 5%;
+    background-size: cover;
+    height: 115vh;
+    min-height: 400px;
+    /* width: 100vw; */
+}
+.bg-shader{
+    background: rgba(0, 0, 0, 0.438);
+    height: 115vh;
+    min-height: 400px;
+
+}
+
+.container{
+    padding: 3%;
+}
+
+.rgt-wrapper{
+	margin: auto;
+	padding: 5px 20px 20px 20px;
+	width: 40%;
+	border: solid;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+	background: rgba(0, 0, 0, 0.164);
+}
+
+.header-wrapper{
+	text-align: center;
+}
+
+.header-wrapper a{
+	font-family: Lato,sans-serif ;
+	color: rgba(240, 234, 234, 0.664);
+	text-decoration: none;
+}
+
+.rgt-form h3{
+	margin: 10px 0px 6px 0px;
+}
+
+.form-table td{
+	padding: 5px 5px 5px 5px;
+}
+
+.btnSubmit{
+	color: rgb(54, 52, 52);
+    padding: 7px 10px 7px 10px;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    font-family: Lato,sans-serif ;
+    background-color: rgba(240, 234, 234, 0.664);
+    border: 0.5px solid black;
+    border-radius: 5px;
+
+}
+
+.btnSubmit:hover{
+    background-color: rgba(0, 0, 0, 0.555);
+    cursor: pointer;
+color: white;
+border-color: white;
+}
+
+.login-link{
+	color: white;
+}
+
+.login-link:hover{
+	color: rgb(196, 186, 48);
+}
+

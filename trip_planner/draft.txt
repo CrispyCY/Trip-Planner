@@ -1,0 +1,33 @@
+core:
+auto generate plan - d
+view plan - d
+modify plan (modify details) - d
+datepicker for new plan, dupilcate community plan, display plan - d
+dupilcate plan insert new day - d
+delete plan - d
+delete att - d
+view all attraction - d
+add new attraction(after adding, auto adjust dur for other att to prevent excess time)
+duration modification (auto add new att)
+display timestamp (html) optional(?)
+if category contains insufficient att, select att from other category
+staff add, delete or update att
+
+social
+view other user profile
+duplicate plan frm other users (community plans) - d
+reviews - d
+comments - d
+
+optional:
+join diff state att
+
+
+DATEDIFF(endDate, startDate) AS DateDiff
+
+
+differentiate community and my plan (source) - d
+prompt some plan options (tags) (more options, display 1 by 1) - d
+once user click save, next time log in striaght view the saved plan - d
+plan should have current plan, next plan and completed plan (status)
+

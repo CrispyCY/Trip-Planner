@@ -1,0 +1,219 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    margin: 0%;
+    padding: 0%;
+    font-family: Lato,sans-serif ;
+
+    /* background: rgba(0, 0, 0, 0.089); */
+
+    /* background-image: url("../rsc/stucco.png");
+    background-repeat: repeat-y; */
+}
+
+.bg-wrapper{
+    background-image: url("../rsc/wallpaperflare.com_wallpaper (7).jpg");
+    background-position: 100% 56%;
+    background-size: cover;
+    background-attachment: scroll,fixed;
+    height: 40vh;
+    /* min-height: 400px; */
+    /* width: 100vw; */
+    font-family: Lato,sans-serif ;
+	color: white;
+
+}
+
+
+.bg-shader{
+    background: rgba(0, 0, 0, 0.329);
+    height: 40vh;
+    /* min-height: 400px; */
+
+}
+.container1{
+    padding: 3%;
+    background-color: #f3f3f3;
+}
+
+.logo{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 40px;
+    /* margin: 8px; */
+    /* padding: 14px 16px; */
+    color:rgb(255, 255, 255);
+    float: left;
+    font-size: 12px;
+  }
+  
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0px;
+    /* padding: 10px 20px 10px 20px; */
+    overflow: hidden;
+    /* background-color: rgba(0, 0, 0, 0.459); */
+    background-color: black;
+    width: 100%;
+  }
+
+ul a{
+text-decoration: none;
+}
+
+li {
+float: right;
+}
+
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 20px 20px;
+text-decoration: none;
+}
+
+li a:hover {
+background-color: white;
+color: black;
+transition: 300ms;
+}
+
+li a:active {
+background-color: white;
+color: black;
+
+}
+    
+.container{
+    padding: 3%;
+}
+
+.split{
+    display: flex;
+	justify-content:center;
+	-webkit-box-align: stretch;
+	-webkit-align-items: stretch;
+	-ms-flex-align: stretch;
+	align-items:stretch;
+    flex-wrap: nowrap;
+
+}
+
+.sp-line{
+    margin-top: 30px;
+    border-bottom: 0.1px solid rgba(168, 163, 163, 0.548);
+    margin-bottom: 30px;
+}
+
+.header-wrapper{
+    display: flex;
+	justify-content:center;
+	-webkit-box-align: stretch;
+	-webkit-align-items: stretch;
+	-ms-flex-align: stretch;
+	align-items:baseline;
+    flex-wrap: wrap;
+
+}
+
+.header-main{
+    padding-top: 60px;
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    /* text-shadow: 3px 3px 5px #666; */
+    /* font-family: Lato,sans-serif ; */
+    /* padding-top: 80px; */
+}
+
+.content-wrapper{
+    text-align: center;
+    display: flex;
+	justify-content:center;
+	-webkit-box-align: stretch;
+	-webkit-align-items: stretch;
+	-ms-flex-align: stretch;
+	align-items:stretch;
+    flex-wrap: wrap;
+
+}
+
+.author{
+    flex-basis: 25%;
+    border-right: 0.1px solid rgba(168, 163, 163, 0.548);
+    padding-top: 20px;
+}
+
+.content{
+    padding-left:20px;
+    padding-right: 20px;
+    flex-basis: 50%;
+}
+
+.author.ii{
+    flex-basis: 25%;
+    border-right: 0.1px solid rgba(168, 163, 163, 0.548);
+    border-bottom: 0.1px solid rgba(168, 163, 163, 0.548);
+    padding-top: 20px;
+}
+
+.content.ii{
+    padding-left:20px;
+    padding-right: 20px;
+    flex-basis: 50%;
+    border-bottom: 0.1px solid rgba(168, 163, 163, 0.548);
+
+}
+
+.content h1{
+    margin: 0px;
+}
+
+.content p{
+    margin-top: 25px;
+    text-align:left;
+}
+
+.cr-span{
+    margin: 0px;
+    text-decoration: none;
+    color:mediumblue;
+}
+
+.cr-span:hover{
+    color: royalblue;
+    text-decoration: underline;
+}
+
+.cr-span2{
+    margin: 30px;
+    text-decoration: none;
+text-align: center
+;}
+
+.createBtn{
+    color: rgb(54, 52, 52);
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    font-size: medium;
+    font-family: Lato,sans-serif ;
+    background-color: rgba(255, 255, 255, 0.705);
+    border: 0.5px solid black;
+    border-radius: 5px;
+}
+
+.createBtn:hover{
+    background-color: rgb(0, 0, 0);
+    cursor: pointer;
+    color: white;
+}
+
+.nw-wrapper{
+    text-align: center;
+}
+
