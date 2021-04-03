@@ -4,6 +4,8 @@ include_once '../database.php';
 
 $userID = $_SESSION['userID'];
 
+$info = mysqli_query($con,"SELECT * FROM user WHERE userID='$userID';");
+
 
 if(isset($_POST['edt_pass']))
 {
@@ -86,7 +88,8 @@ if(isset($_POST['edt_info']))
 	<a href="home.php" class="logo"><h1>Trip Planner</h1></a>
 	<li><a href="logout.php">Log Out</a></li>    
 	<li><a href="forum.php">Forum</a></li>
-	<li><a href="edt_user.php">Edit User Profile</a></li>
+	<li><a href="edt_user.php">User Profile</a></li>
+	<li><a href="#edt">Edit User Profile</a></li>
 	<li><a href="home.php">Home</a></li>
 
 	</ul>
@@ -94,7 +97,44 @@ if(isset($_POST['edt_info']))
 <div class="bg-wrapper">
 		<div class="bg-shader">
 			<div class="container">
-				<div class="rgt-wrapper">
+				<div class="prof-wrapper">
+					<div class="prof">
+						<div class="img-wrapper">
+							<img src="../rsc/user_icon.png" width="110" height="95" alt="user_icon">
+						</div>
+						<div class="info-wrapper">
+						<?php
+						while($infoLst = mysqli_fetch_array($info)) 
+						{
+						?>
+							<div class="info">
+							<h3>Username</h3>
+							<h2><?php echo $infoLst['username'];?></h2>
+						</div>
+							<div class="info">
+							<h3>UserID</h3>
+							<h2><?php echo $infoLst['userID'];?></h2>
+							</div>
+							<div class="info">
+							<h3>First Name</h3>
+							<h2><?php echo $infoLst['firstName'];?></h2>
+							</div>
+							<div class="info">
+							<h3>Last Name</h3>
+							<h2><?php echo $infoLst['lastName'];?></h2>
+							</div>
+							<div class="info">
+							<h3>Email</h3>
+							<h2><?php echo $infoLst['email'];} ?></h2>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="sp-line">
+				</div>
+
+				<div id="edt" class="rgt-wrapper">
 					<div class="header-wrapper">
 						<h1>Edit User Profile</h1>
 					</div>
@@ -106,7 +146,7 @@ if(isset($_POST['edt_info']))
 								<tbody>
 									<tr>
 										<td><label>User ID: </label></td>
-										<td><input type="text" name="userID" required placeholder="User ID" maxlength='20' autofocus></td>
+										<td><input type="text" name="userID" required placeholder="User ID" maxlength='20'></td>
 									</tr>
 									<tr>
 										<td><label>Old Password: </label></td>
