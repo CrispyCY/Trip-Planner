@@ -88,7 +88,7 @@ if(isset($_POST['viewRv'])>0)
 	<a href="home.php" class="logo"><h1>Trip Planner</h1></a>
 	<li><a href="logout.php">Log Out</a></li>    
 	<li><a href="forum.php">Forum</a></li>
-	<li><a href="edt_user.php">Edit User Profile</a></li>
+	<li><a href="edt_user.php">User Profile</a></li>
 
 	<li><a href="home.php">Home</a></li>
 	<li><a href="javascript:history.go(-1)">Back</a></li>    

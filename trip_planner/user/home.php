@@ -222,9 +222,9 @@ if(isset($_POST['cmPlans'])>0)
 		<ul>
 			<a href="home.php" class="logo"><h1>Trip Planner</h1></a>
 			<li><a href="logout.php">Log Out</a></li>    
-			<!-- <li><a href="../student/profile.php">Edit User Profile</a></li> -->
+			<!-- <li><a href="../student/profile.php">User Profile</a></li> -->
 			<li><a href="forum.php">Forum</a></li>
-			<li><a href="edt_user.php">Edit User Profile</a></li>
+			<li><a href="edt_user.php">User Profile</a></li>
 			<li><a href="home.php">Home</a></li>
 		</ul>
 
