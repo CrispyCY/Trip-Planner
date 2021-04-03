@@ -26,7 +26,6 @@ if(isset($_POST['add'])>0)
 	$_SESSION['add'] = $add;
 	// $newAtt = mysqli_query($con,"INSERT INTO `user_plan`(`planID`, `attID`, `modDur`) VALUES '");
 	echo "<script>
-	alert('$add');
 	window.location= 'addAtt.php';
    </script>";
 
@@ -37,7 +36,6 @@ if(isset($_POST['pln'])>0)
 	$pln = $_POST['pln'];
 	$_SESSION['sltPln']=$pln;
 	echo "<script>
-	 alert('$pln');
 	 window.location= 'user_plan.php';
 	</script>";
 
@@ -51,7 +49,6 @@ if(isset($_POST['addRv'])>0)
 	$_SESSION['viewRv'] = $addRv;
 
 	echo "<script>
-	alert('$addRv');
 	window.location ='http://localhost/trip_planner/user/view_reviews.php#new';
    </script>";
 
@@ -64,7 +61,6 @@ if(isset($_POST['viewRv'])>0)
 	$_SESSION['addRv'] = $viewRv;
 
 	echo "<script>
-	alert('$viewRv');
 	window.location= 'view_reviews.php';
    </script>";
 

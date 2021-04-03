@@ -19,7 +19,6 @@ if(isset($_POST['view'])>0)
 	$view = $_POST['view'];
 	$_SESSION['view'] = $view;
 	echo "<script>
-	alert('$view');
 	window.location= 'attraction_detail.php';
    </script>";
 

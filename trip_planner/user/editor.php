@@ -22,17 +22,9 @@ if(isset($_POST['submit'])>0)
 	$sql4 = mysqli_query($con,"UPDATE `user_plan` SET `modDur` = '$modDur' WHERE planID = '$sltPln' AND attID = '$viewAtt';");
 	$con ->close();   
 	echo "<script>
-	 alert('$viewAtt');
+	 alert('Duration updated.');
 	 window.location= 'user_plan.php';
 	</script>";
-
-	//for display
-	// $sql5 = mysqli_query($con,"SELECT * FROM attraction INNER JOIN user_plan ON attraction.attID = user_plan.attID WHERE user_plan.planID = $sltPln;");
-	// while($display = mysqli_fetch_array($sql5))
-	// {
-	// 	 echo $display['attID'];
-	// 	 echo $display['rcmDur'] + $display['modDur'];
-	// }
 
 }
 
@@ -41,7 +33,7 @@ if(isset($_POST['delete'])>0)
 	$sql6 = mysqli_query($con,"DELETE FROM `user_plan` WHERE planID = '$sltPln' AND attID = '$viewAtt';");	
 	$con ->close();   
 	echo "<script>
-	 alert('$viewAtt');
+	 alert('Attraction deleted.');
 	 window.location= 'user_plan.php';
 	</script>";
 }

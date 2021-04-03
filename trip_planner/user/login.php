@@ -23,6 +23,11 @@ if(isset($_POST['submit']))
 	   if (mysqli_num_rows($result) > 0)
 	   {
 			$_SESSION['userID']=$userID;
+			$sql2 = mysqli_query($con,"SELECT * FROM user WHERE userID='$userID' AND binary password='$password';");
+			while($um = mysqli_fetch_array($sql2)) 
+			{
+				$username = $um['username'];
+			}
 			$myPlan = mysqli_query($con,"SELECT * FROM plan WHERE userID = '$userID' AND ('$dtNow' BETWEEN startDate AND endDate);");
 			if (mysqli_num_rows($myPlan) > 0)
 			{
@@ -31,7 +36,7 @@ if(isset($_POST['submit']))
 					$sltPln = $myPlan['planID'];
 					$_SESSION['sltPln']=$sltPln;
 					echo"<script>
-					alert('Welcome back, $userID. You have 1 ongoing plan');
+					alert('Welcome back, $username. You have 1 ongoing plan.');
 					window.location= 'user_plan.php';
 				</script>";
 	
@@ -40,7 +45,7 @@ if(isset($_POST['submit']))
 			}
 			else{
 				echo"<script>
-                alert('Welcome, $userID.');
+                alert('Welcome, $username.');
                 window.location= 'home.php';
 			</script>";
 
@@ -94,7 +99,7 @@ if(isset($_POST['submit']))
 						<div class="login-form">
 							<h3>Log In</h3>
 							<form action="" method="post" autocomplete="off">
-								<label for="username">Username</label><br>
+								<label for="username">User ID</label><br>
 								<input type="text"  autofocus="true" maxlength="256" name="userID"
 									data-name="username" placeholder=" User ID" id="userID" required=""><br><br>
 

@@ -68,7 +68,6 @@ if(isset($_POST['view'])>0)
 	$view = $_POST['view'];
 	$_SESSION['view'] = $view;
 	echo "<script>
-	alert('$view');
 	window.location= 'attraction_detail.php';
    </script>";
 
@@ -81,8 +80,8 @@ if(isset($_POST['dups'])>0)
     $dupPln =  mysqli_query($con,"INSERT INTO `plan`(`planID`, `location`, `planName`, `startDate`, `endDate`, `dups`, `userID`) SELECT '$pl_id', `location`, `planName`, '$startDate', '$endDate', 'Y', '$userID' FROM `plan` WHERE planID = '$viewPln';");
     $dupUsrPln =  mysqli_query($con,"INSERT INTO `user_plan`(`planID`, `attID`, `modDur`) SELECT '$pl_id', `attID`, `modDur` FROM `user_plan` WHERE planID = '$viewPln';");
     echo "<script>
-	alert('Success');
-	window.location= 'home.php';
+	alert('Plan duplicated!');
+	window.location= 'my_plans.php';
    </script>";
 
 }
@@ -91,7 +90,7 @@ if(isset($_POST['upV'])>0)
 {	
     $upV =  mysqli_query($con,"INSERT INTO `community_vote`(`userID`, `comID`) VALUES ('$userID','$comID');");
     echo "<script>
-	alert('Success');
+	alert('Thanks for your upvote!');
 	window.location= 'community_plan.php';
    </script>";
 

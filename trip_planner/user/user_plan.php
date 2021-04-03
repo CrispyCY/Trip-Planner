@@ -42,7 +42,6 @@ if(isset($_POST['viewAtt'])>0)
 	// echo $viewAtt;
 	$con ->close();   
 	echo "<script>
-	 alert('$viewAtt');
 	 window.location= 'editor.php';
 	</script>";
 }
@@ -51,7 +50,7 @@ if(isset($_POST['share'])>0)
 {	
 	$share =  mysqli_query($con,"INSERT INTO `community`(`comID`, `votes`, `counter`, `planID`) VALUES ('$comID',0,0,'$sltPln');");
 	echo "<script>
-	 alert('Shared! $sltPln');
+	 alert('Shared successfully!');
 	 window.location= 'user_plan.php';
 	</script>";
 }
@@ -61,7 +60,7 @@ if(isset($_POST['edtPln'])>0)
 	$edtName=$_POST['edtName'];
 	$udt =  mysqli_query($con,"UPDATE `plan` SET `planName`= '$edtName' WHERE planID = '$sltPln';");
 	echo "<script>
-	alert('$edtName');
+	alert('Trip name saved.');
 	window.location= 'user_plan.php';
    </script>";
 
@@ -73,7 +72,7 @@ if(isset($_POST['edtDts'])>0)
 	$endDate=$_POST['endDate'];
 	$nwDts =  mysqli_query($con,"UPDATE `plan` SET `startDate`='$startDate',`endDate`='$endDate' WHERE planID = '$sltPln';");
 	echo "<script>
-	alert('$startDate $endDate');
+	alert('Dates changed.');
 	window.location= 'user_plan.php';
    </script>";
 
@@ -85,7 +84,7 @@ if(isset($_POST['delete'])>0)
 	$delete =  mysqli_query($con,"DELETE FROM `plan` WHERE planID = '$sltPln';");
 	$delete2 =  mysqli_query($con,"DELETE FROM `user_plan` WHERE planID = '$sltPln';");
 	echo "<script>
-	alert('Deleted $sltPln');
+	alert('Plan deleted.');
 	window.location= 'home.php';
    </script>";
 

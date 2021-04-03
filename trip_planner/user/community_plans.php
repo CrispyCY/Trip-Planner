@@ -24,7 +24,6 @@ if(isset($_POST['viewPln'])>0)
 	$viewPln = $_POST['viewPln'];
 	$_SESSION['viewPln'] = $viewPln;
 	echo "<script>
-	alert('$viewPln');
 	window.location= 'community_plan.php';
    </script>";
 

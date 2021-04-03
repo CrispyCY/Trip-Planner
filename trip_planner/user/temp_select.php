@@ -28,7 +28,6 @@ if(isset($_POST['temp_id'])>0)
     $view_temp=$_POST['temp_id'];
 	$_SESSION['view_temp']=$view_temp;
 	echo "<script>
-	 alert('$view_temp');
 	 window.location= 'temp_up.php';
 	</script>";
 

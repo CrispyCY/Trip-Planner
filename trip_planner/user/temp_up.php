@@ -34,7 +34,7 @@ if(isset($_POST['save_id'])>0)
 
 
 	echo "<script>
-	 alert('Saved successfully! $view_temp');
+	 alert('Saved successfully!');
 	 window.location= 'home.php';
 	</script>";
 }
@@ -44,7 +44,6 @@ if(isset($_POST['viewAtt'])>0)
 	$view = $_POST['viewAtt'];
 	$_SESSION['view'] = $view;
 	echo "<script>
-	alert('$view');
 	window.location= 'attraction_detail.php';
    </script>";
 
@@ -199,8 +198,5 @@ if(isset($_POST['viewAtt'])>0)
 <form id="sv" class="temp_frm" action="" method="post" autocomplete="off">
 <button class="createBtn" type="submit" value="<?php echo $view_temp; ?>" name="save_id">Save This Plan!</button>
 </form>
-
-
-<!-- <a href="temp_select.php" class="register-link">Back</a> -->
 
 </html>

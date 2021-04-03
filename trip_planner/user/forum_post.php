@@ -30,9 +30,8 @@ if(isset($_POST['cmt'])>0)
 {	
     $cmt=ucfirst($_POST['comment']);
     $newCmt = mysqli_query($con,"INSERT INTO `comment` VALUES ('$cmtID','$cmt','$dtNow','$userID','$frView');");
-    // $post = mysqli_query($con,"INSERT INTO `post` VALUES ('$frView','$cmtID');");
 	echo "<script>
-	alert('$cmtID');
+	alert('Comment posted!');
 	window.location= 'forum_post.php';
    </script>";
 
