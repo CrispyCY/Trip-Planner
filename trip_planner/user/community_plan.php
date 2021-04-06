@@ -77,7 +77,7 @@ if(isset($_POST['dups'])>0)
 {	
     $startDate=$_POST['startDate'];
     $endDate=$_POST['endDate'];
-    $dupPln =  mysqli_query($con,"INSERT INTO `plan`(`planID`, `location`, `planName`, `startDate`, `endDate`, `dups`, `userID`) SELECT '$pl_id', `location`, `planName`, '$startDate', '$endDate', 'Y', '$userID' FROM `plan` WHERE planID = '$viewPln';");
+    $dupPln =  mysqli_query($con,"INSERT INTO `plan`(`planID`, `location`, `planName`, `startDate`, `endDate`, `dups`, `pay`, `userID`) SELECT '$pl_id', `location`, `planName`, '$startDate', '$endDate', 'Y', 'Y', '$userID' FROM `plan` WHERE planID = '$viewPln';");
     $dupUsrPln =  mysqli_query($con,"INSERT INTO `user_plan`(`planID`, `attID`, `modDur`) SELECT '$pl_id', `attID`, `modDur` FROM `user_plan` WHERE planID = '$viewPln';");
     echo "<script>
 	alert('Plan duplicated!');
