@@ -15,6 +15,8 @@ $plnInfo = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) A
 
 $plnInfo1 = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE planID = '$sltPln';");
 
+$plnPay = mysqli_query($con,"SELECT pay FROM plan WHERE planID = '$sltPln';");
+
 $plnDtl = mysqli_query($con,"SELECT * FROM attraction INNER JOIN user_plan ON attraction.attID = user_plan.attID WHERE user_plan.planID = '$sltPln';");
 
 
@@ -90,6 +92,18 @@ if(isset($_POST['delete'])>0)
 
 }
 
+if(isset($_POST['cost'])>0)
+{	
+	$cost=$_POST['cost'];
+	$_SESSION['cost'] = $cost;
+	echo "<script>
+	alert('Please wait while we direct you to payment page...');
+	window.location= 'payment.php';
+   </script>";
+
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -155,8 +169,25 @@ if(isset($_POST['delete'])>0)
 				while($ttlCost = mysqli_fetch_array($sql8))
 				{
 					echo "<h3>MYR ".$ttlCost['ttlcost']."</h3>";
+						while($plnPayLst = mysqli_fetch_array($plnPay)) 
+						{
+							if ($plnPayLst['pay'] == "N") {
+								
+							?>	
+									<form action="" method="post" autocomplete="off">
+
+									<button class="att-viewBtn" type="submit" value="<?php echo $ttlCost['ttlcost']?>" name="cost"><h3>Make Payment</h3></button>
+									</form>
+							<?php
+							}
+						else{
+							echo "<h3>Payment has been made</h3>";
+						}
+					}
 				}
 				?>
+				<br>
+
 			</div>
 
 			<div class="info-wrapper">

@@ -17,6 +17,8 @@ unset($_SESSION['pl_id']);
 unset($_SESSION['view']);
 unset($_SESSION['tag1']);
 unset($_SESSION['tag2']);
+unset($_SESSION['cost']);
+
 
 echo $userID;
 
@@ -66,7 +68,7 @@ if(isset($_POST['submit'])>0)
 			$pl_id = $userID.'_pl'.$rand3;
 
 
-			$newPln = mysqli_query($con,"INSERT INTO `plan`(`planID`, `location`, `planName`, `startDate`, `endDate`, `dups`, `userID`) VALUES ('$pl_id', '$userLct','$pl_name', '$startDate', '$endDate', 'N', '$userID');");
+			$newPln = mysqli_query($con,"INSERT INTO `plan`(`planID`, `location`, `planName`, `startDate`, `endDate`, `dups`, `pay`, `userID`) VALUES ('$pl_id', '$userLct','$pl_name', '$startDate', '$endDate', 'N', 'N', '$userID');");
 
 			$calcDur = mysqli_query($con,"SELECT DATEDIFF(endDate, startDate) AS DateDiff FROM plan WHERE userID = '$userID' and planID = '$pl_id';");
 
