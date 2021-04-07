@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+if(isset($_SESSION['userID']))
+{	
+
 include_once '../database.php';
 $userID = $_SESSION['userID'];
 echo $userID;
@@ -165,3 +169,12 @@ if(isset($_POST['delete'])>0)
 	</div>
 </div>
 </html>
+<?php 
+}
+else{
+	echo "<script>
+	alert('Access Denied.');
+	window.location= 'login.php';
+   </script>";
+}
+?>

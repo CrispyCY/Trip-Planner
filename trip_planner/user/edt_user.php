@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+if(isset($_SESSION['userID']))
+{	
+
 include_once '../database.php';
 
 $userID = $_SESSION['userID'];
@@ -192,3 +196,12 @@ if(isset($_POST['edt_info']))
 </body>
 
 </html>
+<?php 
+}
+else{
+	echo "<script>
+	alert('Access Denied.');
+	window.location= 'login.php';
+   </script>";
+}
+?>

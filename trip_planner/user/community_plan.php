@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+if(isset($_SESSION['userID']))
+{	
+
 include_once '../database.php';
 // $userID = $_SESSION["username"];
 unset($_SESSION['viewAtt']);
@@ -77,7 +81,7 @@ if(isset($_POST['dups'])>0)
 {	
     $startDate=$_POST['startDate'];
     $endDate=$_POST['endDate'];
-    $dupPln =  mysqli_query($con,"INSERT INTO `plan`(`planID`, `location`, `planName`, `startDate`, `endDate`, `dups`, `pay`, `userID`) SELECT '$pl_id', `location`, `planName`, '$startDate', '$endDate', 'Y', 'Y', '$userID' FROM `plan` WHERE planID = '$viewPln';");
+    $dupPln =  mysqli_query($con,"INSERT INTO `plan`(`planID`, `location`, `planName`, `startDate`, `endDate`, `dups`, `pay`, `userID`) SELECT '$pl_id', `location`, `planName`, '$startDate', '$endDate', 'Y', 'N', '$userID' FROM `plan` WHERE planID = '$viewPln';");
     $dupUsrPln =  mysqli_query($con,"INSERT INTO `user_plan`(`planID`, `attID`, `modDur`) SELECT '$pl_id', `attID`, `modDur` FROM `user_plan` WHERE planID = '$viewPln';");
     echo "<script>
 	alert('Plan duplicated!');
@@ -113,8 +117,10 @@ if(isset($_POST['upV'])>0)
 	<a href="home.php" class="logo"><h1>Trip Planner</h1></a>
 	<li><a href="logout.php">Log Out</a></li>    
 	<li><a href="forum.php">Forum</a></li>
-	<li><a href="#top">Top</a></li>edt-sec
 	<li><a href="home.php">Home</a></li>	
+	<li><a href="#save">Save</a></li>
+	<li><a href="#top">Top</a></li>
+
 	<li><a href="community_plans.php">Back</a></li>
 
 </ul>
@@ -140,7 +146,6 @@ if(isset($_POST['upV'])>0)
 			{?>
 				<h1><?php echo $plnInfoLst['planName']; ?></h1>
 				<h3><?php echo $plnInfoLst['DateDiff']." days in ".$plnInfoLst['location']; ?></h3>
-				<h5>From <?php echo $plnInfoLst['startDate']; ?> to <?php echo $plnInfoLst['endDate']; ?></h5>
 			<?php	
 			}?>
         </div>
@@ -241,7 +246,7 @@ if(isset($_POST['upV'])>0)
 	<div class="sp-line">
 	</div>
 
-	<div class="sec-3">
+	<div id="save" class="sec-3">
 		<div class="edt-wrapper">
 			<h2>Created By</h2>
 			<h3>
@@ -292,6 +297,13 @@ if(isset($_POST['upV'])>0)
 
 	</div>
 </div>
-
-
 </html>
+<?php 
+}
+else{
+	echo "<script>
+	alert('Access Denied.');
+	window.location= 'login.php';
+   </script>";
+}
+?>

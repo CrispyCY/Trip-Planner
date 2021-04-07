@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+if(isset($_SESSION['userID']))
+{	
+
 include_once '../database.php';
 $userID = $_SESSION['userID'];
 echo $userID;
@@ -45,7 +49,7 @@ if(isset($_POST['view'])>0)
 	<li><a href="edt_user.php">User Profile</a></li>
 
 	<li><a href="home.php">Home</a></li>
-	<li><a href="#top">Top</a></li>edt-sec
+	<li><a href="#top">Top</a></li>
 
 </ul>
 
@@ -114,3 +118,12 @@ if(isset($_POST['view'])>0)
 </div>
 
 </html>
+<?php 
+}
+else{
+	echo "<script>
+	alert('Access Denied.');
+	window.location= 'login.php';
+   </script>";
+}
+?>

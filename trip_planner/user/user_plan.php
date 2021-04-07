@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+if(isset($_SESSION['userID']))
+{	
+
 include_once '../database.php';
 // $userID = $_SESSION["username"];
 unset($_SESSION['viewAtt']);
@@ -50,7 +54,7 @@ if(isset($_POST['viewAtt'])>0)
 
 if(isset($_POST['share'])>0)
 {	
-	$share =  mysqli_query($con,"INSERT INTO `community`(`comID`, `votes`, `counter`, `planID`) VALUES ('$comID',0,0,'$sltPln');");
+	$share =  mysqli_query($con,"INSERT INTO `community`(`comID`, `planID`) VALUES ('$comID','$sltPln');");
 	echo "<script>
 	 alert('Shared successfully!');
 	 window.location= 'user_plan.php';
@@ -126,7 +130,7 @@ if(isset($_POST['cost'])>0)
 
 	<li><a href="home.php">Home</a></li>
 	<li><a href="#edt-sec">Edit Plan</a></li>
-	<li><a href="#top">Top</a></li>edt-sec
+	<li><a href="#top">Top</a></li>
 
 </ul>
 
@@ -181,7 +185,7 @@ if(isset($_POST['cost'])>0)
 							<?php
 							}
 						else{
-							echo "<h3>Payment has been made</h3>";
+							echo '<h3>Payment has been made</h3>';
 						}
 					}
 				}
@@ -307,3 +311,12 @@ if(isset($_POST['cost'])>0)
 </div>
 
 </html>
+<?php 
+}
+else{
+	echo "<script>
+	alert('Access Denied.');
+	window.location= 'login.php';
+   </script>";
+}
+?>

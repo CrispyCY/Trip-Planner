@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+if(isset($_SESSION['userID']))
+{	
+
 include_once '../database.php';
 unset($_SESSION['addRv']);
 unset($_SESSION['viewRv']);
@@ -182,7 +186,13 @@ if(isset($_POST['viewRv'])>0)
 		</form>
 	</div>
 </div>
-
-
-
 </html>
+<?php 
+}
+else{
+	echo "<script>
+	alert('Access Denied.');
+	window.location= 'login.php';
+   </script>";
+}
+?>

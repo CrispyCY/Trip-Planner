@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+if(isset($_SESSION['userID']))
+{	
+
 include_once '../database.php';
 unset($_SESSION['frView']);
 $userID = $_SESSION['userID'];
@@ -12,7 +16,7 @@ $allPst = mysqli_query($con,"SELECT * FROM forum INNER JOIN user ON user.userID 
 
 date_default_timezone_set("Asia/Kuala_Lumpur");
 $dtNow = date("Y-m-d");  
-
+echo $dtNow;
 
 $result = $con->query("SELECT COUNT(frmID) FROM forum;");
 $counter = $result->fetch_row();
@@ -129,3 +133,12 @@ if(isset($_POST['frPost'])>0)
 	</div>
 </div>
 </html>
+<?php 
+}
+else{
+	echo "<script>
+	alert('Access Denied.');
+	window.location= 'login.php';
+   </script>";
+}
+?>
