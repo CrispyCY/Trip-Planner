@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+if(isset($_SESSION['userID']))
+{	
+
 include_once '../database.php';
 $userID = $_SESSION['userID'];
 unset($_SESSION['sltPln']);
@@ -338,3 +342,13 @@ if(isset($_POST['cmPlans'])>0)
 </div>
 
 </html>
+
+<?php 
+}
+else{
+	echo "<script>
+	alert('Access Denied.');
+	window.location= 'login.php';
+   </script>";
+}
+?>

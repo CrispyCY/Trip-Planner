@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+if(isset($_SESSION['userID']))
+{	
+
 include_once '../database.php';
 // $userID = $_SESSION["username"];
 $userID = $_SESSION['userID'];
@@ -97,7 +101,6 @@ else{ ?>
 								<button class="mpBtn" type="submit" value="<?php echo $comPlnLst['planID']; ?>" name="viewPln">
 									<div class="mp-span"><?php echo $comPlnLst['planName']; ?></div>
 									<div class="mp-span1"><?php echo $comPlnLst['DateDiff']." days in ".$comPlnLst['location']; ?></div>
-									<div class="mp-span2"><?php echo $comPlnLst['startDate']." - ".$comPlnLst['endDate'];?></div>
 									<div class="mp-span3">View &#x1F50D;</div>
 								</button>
 
@@ -114,3 +117,12 @@ else{ ?>
 ?>
 
 </html>
+<?php 
+}
+else{
+	echo "<script>
+	alert('Access Denied.');
+	window.location= 'login.php';
+   </script>";
+}
+?>

@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+if(isset($_SESSION['userID']))
+{	
+
 include_once '../database.php';
 $userID = $_SESSION['userID'];
 echo $userID;
@@ -72,7 +76,7 @@ if(isset($_POST['temp_id'])>0)
 			<form action="" method="post" autocomplete="off">
 
 				<div class="plan-sec">
-					<h2>We have created 3 plans for you to choose. Pick a plan!</h2>
+					<h2>We have created 3 plans just for you. Pick a plan!</h2>
 					<div class="mp-wrapper">
 						<button class="mpBtn" type="submit" value="<?php echo $temp_id; ?>" name="temp_id">
 							<div class="mp-span">Plan 1</div>
@@ -89,9 +93,9 @@ if(isset($_POST['temp_id'])>0)
 							<div class="mp-span1">Focus more on <?php echo $tag2 ?></div>
 							<div class="mp-span3">View &#x1F50D;</div>
 						</button>
-
 					</div>
 				</div>
+
 			</form>
 		</div>
 	</div>
@@ -99,3 +103,12 @@ if(isset($_POST['temp_id'])>0)
 
 
 </html>
+<?php 
+}
+else{
+	echo "<script>
+	alert('Access Denied.');
+	window.location= 'login.php';
+   </script>";
+}
+?>

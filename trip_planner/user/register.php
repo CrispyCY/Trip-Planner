@@ -27,7 +27,7 @@ if(isset($_POST['submit']))
 				 mysqli_close($con);
 				 
 				 echo "<script>
-						alert('Register successfully');
+						alert('Registered successfully!');
 						window.location= 'login.php';
 					</script>";
 			
@@ -35,7 +35,7 @@ if(isset($_POST['submit']))
 		else
 		{
 			echo "<script>
-					alert('Email address has been taken');
+					alert('Email address has been taken.');
 				</script>"; 
 		}
 		 
@@ -43,7 +43,7 @@ if(isset($_POST['submit']))
 	else
 	{
 		echo "<script>
-				alert('Username has been taken');
+				alert('Username has been taken.');
 			</script>"; 
 	}
 }

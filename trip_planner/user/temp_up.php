@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+if(isset($_SESSION['userID']))
+{	
+
 include_once '../database.php';
 // $userID = $_SESSION["username"];
 $userID = $_SESSION['userID'];
@@ -65,11 +69,6 @@ if(isset($_POST['viewAtt'])>0)
 
 <ul>
 	<a href="home.php" class="logo"><h1>Trip Planner</h1></a>
-	<!-- <li><a href="logout.php">Log Out</a></li>    
-	<li><a href="forum.php">Forum</a></li>
-	<li><a href="#edt-sec">Edit Plan</a></li>
-	<li><a href="#top">Top</a></li>edt-sec
-	<li><a href="home.php">Home</a></li> -->
 	<li><a href="#sv">Save</a></li>
 	<li><a href="temp_select.php">Back</a></li>
 
@@ -200,3 +199,12 @@ if(isset($_POST['viewAtt'])>0)
 </form>
 
 </html>
+<?php 
+}
+else{
+	echo "<script>
+	alert('Access Denied.');
+	window.location= 'login.php';
+   </script>";
+}
+?>

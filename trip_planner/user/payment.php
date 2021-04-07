@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+if(isset($_SESSION['userID']))
+{	
+
 include_once '../database.php';
 $userID = $_SESSION['userID'];
 $cost = $_SESSION['cost'];
@@ -234,3 +238,12 @@ span.price {
 
 </body>
 </html>
+<?php 
+}
+else{
+	echo "<script>
+	alert('Access Denied.');
+	window.location= 'login.php';
+   </script>";
+}
+?>
