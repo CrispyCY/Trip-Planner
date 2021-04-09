@@ -43,7 +43,7 @@ if(isset($_POST['submit']))
 	else
 	{
 		echo "<script>
-				alert('Username has been taken.');
+				alert('UserID has been taken.');
 			</script>"; 
 	}
 }

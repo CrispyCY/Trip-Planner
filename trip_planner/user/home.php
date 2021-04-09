@@ -62,7 +62,7 @@ if(isset($_POST['submit'])>0)
 	 if ($tag == $tag2)
 	 {
 		echo "<script>
-		alert('Please select different tags!');
+		alert('Please select different preferences!');
 		window.location= 'home.php';
 	   </script>";   
 

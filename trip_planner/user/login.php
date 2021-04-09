@@ -55,7 +55,7 @@ if(isset($_POST['submit']))
 	   else
 		{
 			echo"<script>
-				alert('Incorrect username or password');
+				alert('Incorrect username or password!');
 				window.location= 'login.php';
 			</script>";
 		}

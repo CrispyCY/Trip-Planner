@@ -63,7 +63,7 @@ if(isset($_POST['share'])>0)
 
 if(isset($_POST['edtPln'])>0)
 {	
-	$edtName=$_POST['edtName'];
+	$edtName=ucwords($_POST['edtName']);
 	$udt =  mysqli_query($con,"UPDATE `plan` SET `planName`= '$edtName' WHERE planID = '$sltPln';");
 	echo "<script>
 	alert('Trip name saved.');
@@ -91,7 +91,7 @@ if(isset($_POST['delete'])>0)
 	$delete2 =  mysqli_query($con,"DELETE FROM `user_plan` WHERE planID = '$sltPln';");
 	echo "<script>
 	alert('Plan deleted.');
-	window.location= 'home.php';
+	window.location= 'my_plans.php';
    </script>";
 
 }
@@ -294,7 +294,7 @@ if(isset($_POST['cost'])>0)
 			<h3>Delete plan</h3>
 			<h5>*Please note that once the plan is deleted, the action cannot be revert!</h5>
 			<form action="" method="post" autocomplete="off">
-			<button onClick="javascript: return confirm('Please confirm deletion');" class="dltBtn" type="delete" value="delete" name="delete">Delete</button>
+			<button onClick="javascript: return confirm('Please confirm deletion...');" class="dltBtn" type="delete" value="delete" name="delete">Delete</button>
 			</form>
 		</div>
 
