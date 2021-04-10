@@ -24,7 +24,7 @@ unset($_SESSION['tag2']);
 unset($_SESSION['cost']);
 
 
-echo $userID;
+// echo $userID;
 
 $rand1 = mt_rand(100,500);
 $rand2 = mt_rand(100,500);
@@ -34,7 +34,7 @@ date_default_timezone_set("Asia/Kuala_Lumpur");
 $dtNow = date("Y-m-d");  
 
 $myPlan0 = mysqli_query($con,"SELECT COUNT(planID) AS plCount FROM plan WHERE userID = '$userID' ;");
-$allPlns = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE userID = '$userID' ORDER BY startDate DESC;");
+$allPlns = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE userID = '$userID' ORDER BY startDate ASC;");
 
 
 if(isset($_POST['submit'])>0)
@@ -82,7 +82,7 @@ if(isset($_POST['submit'])>0)
 			
 			}
 			
-			$ttlHr = $duration * 10;
+			$ttlHr = $duration * 25;
 
 			//dtermine how many att, then use that as counter to loop how many times on insert query, each insert should have diff attID
 			$attDur = 0;
@@ -95,7 +95,7 @@ if(isset($_POST['submit'])>0)
 
 
 			//  Do general filter
-		$attID = mysqli_query($con,"SELECT `attID`, `rcmDur` FROM `attraction` WHERE `category` = '$userCate' AND stateID = '$stateID' ORDER BY RAND ();");
+		$attID = mysqli_query($con,"SELECT `attID`, `rcmDur` FROM `attraction` WHERE `category` LIKE '$userCate' AND stateID = '$stateID' ORDER BY RAND ();");
 		while($attNum = mysqli_fetch_array($attID))
 		{
 			$ttlAtt = $attNum['attID'];
@@ -106,7 +106,7 @@ if(isset($_POST['submit'])>0)
 			}
 		}	
 
-		$attID2 = mysqli_query($con,"SELECT `attID`, `rcmDur` FROM `attraction` WHERE `category` = '$userCate' AND stateID = '$stateID' 
+		$attID2 = mysqli_query($con,"SELECT `attID`, `rcmDur` FROM `attraction` WHERE `category` LIKE '$userCate' AND stateID = '$stateID' 
 		AND attraction.tags LIKE '$tag' ORDER BY RAND ();");
 		while($attNum2 = mysqli_fetch_array($attID2))
 		{
@@ -118,7 +118,7 @@ if(isset($_POST['submit'])>0)
 			}
 		}
 
-		$attID3 = mysqli_query($con,"SELECT `attID`, `rcmDur` FROM `attraction` WHERE `category` = '$userCate' AND stateID = '$stateID' 
+		$attID3 = mysqli_query($con,"SELECT `attID`, `rcmDur` FROM `attraction` WHERE `category` LIKE '$userCate' AND stateID = '$stateID' 
 		AND attraction.tags LIKE '$tag2' ORDER BY RAND ();");
 		while($attNum3 = mysqli_fetch_array($attID3))
 		{
@@ -233,8 +233,8 @@ if(isset($_POST['cmPlans'])>0)
 						<div class="create-sec">
 							<h3>Main Preference<h3>
 							<select name="userCate" required>
-								<option value="Indoors">Indoors</option>
-								<option value="Outdoors">Outdoors</option>
+								<option value="%Indoors%">Indoors</option>
+								<option value="%Outdoors%">Outdoors</option>
 							</select><br>
 
 							<h3>Activities Preferences<h3>
@@ -292,7 +292,7 @@ if(isset($_POST['cmPlans'])>0)
 
 						<?php
 					if (mysqli_num_rows($allPlns) == 0){?>
-						<?php echo "None"; ?>
+						<h3 class="none-header">None</h3>
 						<?php
 					}
 					else{

@@ -6,16 +6,16 @@ if(isset($_SESSION['userID']))
 
 include_once '../database.php';
 $userID = $_SESSION['userID'];
-echo $userID;
+// echo $userID;
 $viewRv= $_SESSION['viewRv'];
-echo $viewRv;
+// echo $viewRv;
 
 
 $allRev = mysqli_query($con,"SELECT * FROM review INNER JOIN user ON review.userID = user.userID WHERE attID = '$viewRv';");
 $allRev2 = mysqli_query($con,"SELECT count(reviewID) as RPY FROM review INNER JOIN user ON review.userID = user.userID WHERE attID = '$viewRv';");
 
 $addRv= $_SESSION['addRv'];
-echo $addRv;
+// echo $addRv;
 
 date_default_timezone_set("Asia/Kuala_Lumpur");
 $dtNow = date("Y-m-d");  
@@ -25,7 +25,7 @@ $counter = $result->fetch_row();
 $newCount = $counter[0] + 1;
 $reviewID = 'rw'.strval($newCount);
 
-echo $reviewID;
+// echo $reviewID;
 
 if(isset($_POST['review'])>0)
 {	
@@ -61,7 +61,7 @@ if(isset($_POST['review'])>0)
 	<li><a href="home.php">Home</a></li>
 	<li><a href="#new">New Review</a></li>
 
-	<li><a href="attraction_detail.php">Back</a></li>
+	<li><a href="javascript:history.go(-1)">Back</a></li>
 
 	</ul>
 

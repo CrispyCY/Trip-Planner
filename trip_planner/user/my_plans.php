@@ -9,7 +9,7 @@ include_once '../database.php';
 $userID = $_SESSION['userID'];
 
 
-echo $userID;
+// echo $userID;
 
 $rand1 = mt_rand(100,500);
 $rand2 = mt_rand(100,500);
@@ -86,7 +86,7 @@ if(isset($_POST['myPlanLct'])>0)
                     <?php
                         if (mysqli_num_rows($myPlan) == 0){?>
                             <div>
-                            <h3 class="none-header"><?php echo "None"; ?></h3>
+                            <h3 class="none-header">None</h3>
                             <a href="home.php" class="cr-span"><h4>Create some?</h4></a>
                             </div>
                             <?php

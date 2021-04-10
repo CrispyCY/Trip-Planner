@@ -7,9 +7,9 @@ if(isset($_SESSION['userID']))
 include_once '../database.php';
 // $userID = $_SESSION["username"];
 $userID = $_SESSION['userID'];
-echo $userID;
+// echo $userID;
 $state = $_SESSION['state'];
-echo $state;
+// echo $state;
 unset($_SESSION['viewPln']);
 
 

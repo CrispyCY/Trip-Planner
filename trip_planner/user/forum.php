@@ -7,7 +7,7 @@ if(isset($_SESSION['userID']))
 include_once '../database.php';
 unset($_SESSION['frView']);
 $userID = $_SESSION['userID'];
-echo $userID;
+// echo $userID;
 
 $allPst = mysqli_query($con,"SELECT * FROM forum INNER JOIN user ON user.userID = forum.userID ORDER BY `forum`.`date` DESC;");
 // $allPst = mysqli_query($con,"SELECT * FROM forum ORDER BY `forum`.`date` DESC;");
@@ -16,7 +16,7 @@ $allPst = mysqli_query($con,"SELECT * FROM forum INNER JOIN user ON user.userID 
 
 date_default_timezone_set("Asia/Kuala_Lumpur");
 $dtNow = date("Y-m-d");  
-echo $dtNow;
+// echo $dtNow;
 
 $result = $con->query("SELECT COUNT(frmID) FROM forum;");
 $counter = $result->fetch_row();

@@ -6,11 +6,11 @@ if(isset($_SESSION['userID']))
 
 include_once '../database.php';
 $userID = $_SESSION['userID'];
-echo $userID;
+// echo $userID;
 $sltPln = $_SESSION['sltPln'];
-echo $sltPln;
+// echo $sltPln;
 $viewAtt = $_SESSION['viewAtt'];
-echo $viewAtt;
+// echo $viewAtt;
 
 $plnInfo = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE planID = '$sltPln';");
 $plnDtl = mysqli_query($con,"SELECT * FROM attraction INNER JOIN user_plan ON attraction.attID = user_plan.attID WHERE user_plan.planID = '$sltPln' AND attraction.attID = '$viewAtt';");
@@ -40,6 +40,30 @@ if(isset($_POST['delete'])>0)
 	 alert('Attraction deleted.');
 	 window.location= 'user_plan.php';
 	</script>";
+}
+
+if(isset($_POST['addRv'])>0)
+{	
+    $addRv = $_POST['addRv'];
+    $_SESSION['addRv'] = $addRv;
+	$_SESSION['viewRv'] = $addRv;
+
+	echo "<script>
+	window.location ='http://localhost/trip_planner/user/view_reviews.php#new';
+   </script>";
+
+}
+
+if(isset($_POST['viewRv'])>0)
+{	
+    $viewRv = $_POST['viewRv'];
+    $_SESSION['viewRv'] = $viewRv;
+	$_SESSION['addRv'] = $viewRv;
+
+	echo "<script>
+	window.location= 'view_reviews.php';
+   </script>";
+
 }
 
 ?>
@@ -85,6 +109,8 @@ if(isset($_POST['delete'])>0)
 
 		</div>
 
+		<form action="" method="post" autocomplete="off" class="info-wrapper">
+
 		<div class="info-wrapper">
 
 			<?php
@@ -128,11 +154,21 @@ if(isset($_POST['delete'])>0)
 
 			<iframe src="<?php echo $plnDtl3Lst['map_url']; ?>" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
+
+			<div class="info-box">
+			<button class="att-viewBtn" type="submit" value="<?php echo $plnDtl3Lst['attID']; ?>" name="viewRv"><h4>View Reviews ></h4></button>
+			</div>
+
+			<div class="info-box">
+			<button class="att-viewBtn" type="submit" value="<?php echo $plnDtl3Lst['attID']; ?>" name="addRv"><h4>Add Review ></h4></button>
+			</div>
+
 			<?php
 			}?>
 
 			
 		</div>
+		</form>
 
 	</div>
 
