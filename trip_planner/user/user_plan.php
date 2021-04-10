@@ -19,6 +19,12 @@ $plnInfo = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) A
 
 $plnInfo1 = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE planID = '$sltPln';");
 
+$plnInfo2 = mysqli_query($con,"SELECT DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE planID = '$sltPln';");
+while($plnInfo2Lst = mysqli_fetch_array($plnInfo2)) 
+{
+	$diff = $plnInfo2Lst['DateDiff'];
+}
+
 $plnPay = mysqli_query($con,"SELECT pay FROM plan WHERE planID = '$sltPln';");
 
 $plnDtl = mysqli_query($con,"SELECT * FROM attraction INNER JOIN user_plan ON attraction.attID = user_plan.attID WHERE user_plan.planID = '$sltPln';");
@@ -224,9 +230,10 @@ if(isset($_POST['cost'])>0)
 				$dyCt = 0;
 				$dyCt2 = 0;
 				while($plnDtlLst = mysqli_fetch_array($plnDtl)) 
-					{?>
+					{
+					?>
 						<?php
-							if($dyCt%4==0)
+							if($dyCt%4==0 && $dyCt2!=$diff)
 							{
 								$dyCt2+=1;?>
 								<div class="day-wrapper">
@@ -242,7 +249,7 @@ if(isset($_POST['cost'])>0)
 
 						<div class="att-wrapper">
 							<button class="att-viewBtn" type="submit" value="<?php echo $plnDtlLst['attID']; ?>" name="viewAtt"><h3><?php echo $plnDtlLst['attName']; ?></h3></button><br>
-							<img src="../rsc/att_img/<?php echo $plnDtlLst['imgName']; ?>" alt="<?php echo $plnDtlLst['attName']; ?>">
+							<img src="../rsc/att_img/<?php echo $plnDtlLst['imgName']; ?>" alt="<?php echo $plnDtlLst['attName']; ?>" width="220" height="180">
 							<h4 class="att-dur"> &#x1F551; <?php 
 							if ($plnDtlLst['modDur'] == 0){
 								echo $plnDtlLst['rcmDur'];

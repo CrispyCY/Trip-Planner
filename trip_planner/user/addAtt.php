@@ -6,13 +6,13 @@ if(isset($_SESSION['userID']))
 
 include_once '../database.php';
 $userID = $_SESSION['userID'];
-echo $userID;
+// echo $userID;
 // $sltPln = $_SESSION['sltPln'];
 // echo $sltPln;
 $state = $_SESSION['state'];
-echo $state;
+// echo $state;
 $add = $_SESSION['add'];
-echo $add;
+// echo $add;
 
 
 $usrPln = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM ((user_plan INNER JOIN attraction ON attraction.attID = user_plan.attID) 

@@ -6,10 +6,10 @@ if(isset($_SESSION['userID']))
 
 include_once '../database.php';
 $userID = $_SESSION['userID'];
-echo $userID;
+// echo $userID;
 unset($_SESSION['view']);
 $state = $_SESSION['state'];
-echo $state;
+// echo $state;
 
 $sttInfo = mysqli_query($con,"SELECT * FROM state WHERE stateID = '$state';");
 $sttInfo1 = mysqli_query($con,"SELECT * FROM state WHERE stateID = '$state';");
@@ -104,7 +104,7 @@ if(isset($_POST['view'])>0)
 						<div class="att-wrapper">
 
 					<button class="att-viewBtn" type="submit" value="<?php echo $allAttLst['attID']; ?>" name="view"><h3><?php echo $allAttLst['attName']; ?></h3></button><br>
-					<img src="../rsc/att_img/<?php echo $allAttLst['imgName']; ?>" alt="<?php echo $allAttLst['attName']; ?>">
+					<img src="../rsc/att_img/<?php echo $allAttLst['imgName']; ?>" alt="<?php echo $allAttLst['attName']; ?>" width="220" height="180">
 					<h4 class="att-dur"> &#x1F551; <?php echo $allAttLst['rcmDur']; ?> hours</h4>
 					<p class="att-descp"><?php echo $allAttLst['descp']; ?></p>
 					<button class="att-viewBtn" type="submit" value="<?php echo $allAttLst['attID']; ?>" name="view">See details ></button>

@@ -8,16 +8,23 @@ include_once '../database.php';
 // $userID = $_SESSION["username"];
 unset($_SESSION['viewAtt']);
 $userID = $_SESSION['userID'];
-echo $userID;
+// echo $userID;
 $viewPln = $_SESSION['viewPln'];
-echo $viewPln;
+// echo $viewPln;
 $state = $_SESSION['state'];
-echo $state;
+// echo $state;
 
 
 $plnInfo = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE planID = '$viewPln';");
 
 $plnInfo1 = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE planID = '$viewPln';");
+
+$plnInfo2 = mysqli_query($con,"SELECT DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE planID = '$viewPln';");
+while($plnInfo2Lst = mysqli_fetch_array($plnInfo2)) 
+{
+	$diff = $plnInfo2Lst['DateDiff'];
+}
+
 
 $plnDtl = mysqli_query($con,"SELECT * FROM attraction INNER JOIN user_plan ON attraction.attID = user_plan.attID WHERE user_plan.planID = '$viewPln';");
 
@@ -199,7 +206,7 @@ if(isset($_POST['upV'])>0)
 				while($plnDtlLst = mysqli_fetch_array($plnDtl)) 
 					{?>
 						<?php
-							if($dyCt%4==0)
+							if($dyCt%4==0 && $dyCt2!=$diff)
 							{
 								$dyCt2+=1;?>
 								<div class="day-wrapper">
@@ -215,7 +222,7 @@ if(isset($_POST['upV'])>0)
 
 						<div class="att-wrapper">
 							<button class="att-viewBtn" type="submit" value="<?php echo $plnDtlLst['attID']; ?>" name="view"><h3><?php echo $plnDtlLst['attName']; ?></h3></button><br>
-							<img src="../rsc/att_img/<?php echo $plnDtlLst['imgName']; ?>" alt="<?php echo $plnDtlLst['attName']; ?>">
+							<img src="../rsc/att_img/<?php echo $plnDtlLst['imgName']; ?>" alt="<?php echo $plnDtlLst['attName']; ?>" width="220" height="180">
 							<h4 class="att-dur"> &#x1F551; <?php 
 							if ($plnDtlLst['modDur'] == 0){
 								echo $plnDtlLst['rcmDur'];

@@ -9,13 +9,13 @@ unset($_SESSION['addRv']);
 unset($_SESSION['viewRv']);
 
 $userID = $_SESSION['userID'];
-echo $userID;
+// echo $userID;
 // $sltPln = $_SESSION['sltPln'];
 // echo $sltPln;
 $state = $_SESSION['state'];
-echo $state;
+// echo $state;
 $add = $_SESSION['view'];
-echo $add;
+// echo $add;
 
 // $plnInfo = mysqli_query($con,"SELECT * FROM plan WHERE planID = '$sltPln';");
 // $plnDtl = mysqli_query($con,"SELECT * FROM attraction INNER JOIN user_plan ON attraction.attID = user_plan.attID WHERE user_plan.planID = '$sltPln' AND attraction.attID = '$viewAtt';");

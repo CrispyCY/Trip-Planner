@@ -6,23 +6,23 @@ if(isset($_SESSION['userID']))
 
 include_once '../database.php';
 $userID = $_SESSION['userID'];
-echo $userID;
+// echo $userID;
 // $sltPln = $_SESSION['sltPln'];
 // echo $sltPln;
 // $state = $_SESSION['state'];
 // echo $state;
 $temp_id = $_SESSION['temp_id'];
-echo $temp_id;
+// echo $temp_id;
 $temp_id2 = $_SESSION['temp_id2'];
-echo $temp_id2;
+// echo $temp_id2;
 $temp_id3 = $_SESSION['temp_id3'];
-echo $temp_id3;
+// echo $temp_id3;
 $pl_id = $_SESSION['pl_id'];
-echo $pl_id;
+// echo $pl_id;
 $tag1 = $_SESSION['tag1'];
 $tag2 = $_SESSION['tag2'];
-echo $tag1;
-echo $tag2;
+// echo $tag1;
+// echo $tag2;
 
 unset($_SESSION['view_temp']);
 

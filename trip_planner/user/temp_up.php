@@ -7,14 +7,20 @@ if(isset($_SESSION['userID']))
 include_once '../database.php';
 // $userID = $_SESSION["username"];
 $userID = $_SESSION['userID'];
-echo $userID;
+// echo $userID;
 $view_temp = $_SESSION['view_temp'];
-echo $view_temp;
+// echo $view_temp;
 $pl_id = $_SESSION['pl_id'];
-echo $pl_id;
+// echo $pl_id;
 
 $getSt = mysqli_query($con,"SELECT * FROM plan WHERE planID = '$pl_id';");
 $plnInfo = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE planID = '$pl_id';");
+
+$plnInfo2 = mysqli_query($con,"SELECT DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE planID = '$pl_id';");
+while($plnInfo2Lst = mysqli_fetch_array($plnInfo2)) 
+{
+	$diff = $plnInfo2Lst['DateDiff'];
+}
 
 // $plnInfo = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE planID = '$sltPln';");
 $plnDtl = mysqli_query($con,"SELECT * FROM attraction INNER JOIN temp_up ON attraction.attID = temp_up.attID WHERE temp_up.tempID = '$view_temp';");
@@ -69,6 +75,7 @@ if(isset($_POST['viewAtt'])>0)
 
 <ul>
 	<a href="home.php" class="logo"><h1>Trip Planner</h1></a>
+	<li><a href="#top">Top</a></li>
 	<li><a href="#sv">Save</a></li>
 	<li><a href="temp_select.php">Back</a></li>
 
@@ -110,8 +117,8 @@ if(isset($_POST['viewAtt'])>0)
 
 <div class="container1">
 	<div class="split">
-		<div class="pln-info">
-			<div class="info-wrapper">
+		<div  class="pln-info">
+			<div id="top" class="info-wrapper">
 				<h2>Total cost</h2>
 				<?php
 				while($ttlCost = mysqli_fetch_array($sql8))
@@ -153,7 +160,7 @@ if(isset($_POST['viewAtt'])>0)
 				while($plnDtlLst = mysqli_fetch_array($plnDtl)) 
 					{?>
 						<?php
-							if($dyCt%4==0)
+							if($dyCt%4==0 && $dyCt2!=$diff)
 							{
 								$dyCt2+=1;?>
 								<div class="day-wrapper">
@@ -169,7 +176,7 @@ if(isset($_POST['viewAtt'])>0)
 
 						<div class="att-wrapper">
 							<button class="att-viewBtn" type="submit" value="<?php echo $plnDtlLst['attID']; ?>" name="viewAtt"><h3><?php echo $plnDtlLst['attName']; ?></h3></button><br>
-							<img src="../rsc/att_img/<?php echo $plnDtlLst['imgName']; ?>" alt="<?php echo $plnDtlLst['attName']; ?>">
+							<img src="../rsc/att_img/<?php echo $plnDtlLst['imgName']; ?>" alt="<?php echo $plnDtlLst['attName']; ?>" width="220" height="180">
 							<h4 class="att-dur"> &#x1F551; <?php echo $plnDtlLst['rcmDur']; ?> hours</h4>
 							<blockquote class="att-descp"><?php echo $plnDtlLst['descp']; ?></blockquote>
 							<button class="att-viewBtn" type="submit" value="<?php echo $plnDtlLst['attID']; ?>" name="viewAtt">See details ></button>
