@@ -22,6 +22,8 @@ unset($_SESSION['view']);
 unset($_SESSION['tag1']);
 unset($_SESSION['tag2']);
 unset($_SESSION['cost']);
+unset($_SESSION['usc']);
+unset($_SESSION['stID']);
 
 
 // echo $userID;
@@ -49,7 +51,14 @@ if(isset($_POST['submit'])>0)
 		$stateID = 'st2';
 	}
 	 $pl_name= ucwords($_POST['pl_name']);
-	 $userCate=$_POST['userCate'];
+	 $userCate0=$_POST['userCate'];
+	 if ($userLct == "Indoors"){
+		$userCate = '%Indoors%';
+	}
+	else{
+	   $userCate = '%Outdoors%';
+	}
+
 	 $startDate=$_POST['startDate'];
 	 $endDate=$_POST['endDate'];
 
@@ -95,7 +104,7 @@ if(isset($_POST['submit'])>0)
 
 
 			//  Do general filter
-		$attID = mysqli_query($con,"SELECT `attID`, `rcmDur` FROM `attraction` WHERE `category` LIKE '$userCate' AND stateID = '$stateID' ORDER BY RAND ();");
+		$attID = mysqli_query($con,"SELECT `attID`, `rcmDur` FROM `attraction` WHERE `category` LIKE '$userCate' AND stateID = '$stateID' AND attraction.tags LIKE '$tag' OR attraction.tags LIKE '$tag2' ORDER BY RAND ();");
 		while($attNum = mysqli_fetch_array($attID))
 		{
 			$ttlAtt = $attNum['attID'];
@@ -136,6 +145,8 @@ if(isset($_POST['submit'])>0)
 		$_SESSION['pl_id']=$pl_id;
 		$_SESSION['tag1']=$_POST['tag'];
 		$_SESSION['tag2']=$_POST['tag2'];
+		$_SESSION['usc']=$userCate0;
+		$_SESSION['stID']=$stateID;
 
 
 		echo "<script>
@@ -233,8 +244,8 @@ if(isset($_POST['cmPlans'])>0)
 						<div class="create-sec">
 							<h3>Main Preference<h3>
 							<select name="userCate" required>
-								<option value="%Indoors%">Indoors</option>
-								<option value="%Outdoors%">Outdoors</option>
+								<option value="Indoors">Indoors</option>
+								<option value="Outdoors">Outdoors</option>
 							</select><br>
 
 							<h3>Activities Preferences<h3>
