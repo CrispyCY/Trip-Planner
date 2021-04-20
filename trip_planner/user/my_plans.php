@@ -19,10 +19,10 @@ date_default_timezone_set("Asia/Kuala_Lumpur");
 $dtNow = date("Y-m-d");  
 
 $myPlan0 = mysqli_query($con,"SELECT COUNT(planID) AS plCount FROM plan WHERE userID = '$userID' ;");
-$myPlan = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE userID = '$userID' AND ('$dtNow' BETWEEN startDate AND endDate);");
-$myPlan1 = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE userID = '$userID' AND dups = 'N' AND startDate > '$dtNow';");
-$myPlan2 = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE userID = '$userID' AND endDate < '$dtNow';");
-$myPlan3 = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE userID = '$userID' AND dups = 'Y' AND startDate > '$dtNow' AND ('$dtNow' NOT BETWEEN startDate AND endDate);");
+$myPlan = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE userID = '$userID' AND ('$dtNow' BETWEEN startDate AND endDate) ORDER BY startDate ASC;");
+$myPlan1 = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE userID = '$userID' AND dups = 'N' AND startDate > '$dtNow' ORDER BY startDate ASC;");
+$myPlan2 = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE userID = '$userID' AND endDate < '$dtNow' ORDER BY startDate ASC;");
+$myPlan3 = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE userID = '$userID' AND dups = 'Y' AND startDate > '$dtNow' AND ('$dtNow' NOT BETWEEN startDate AND endDate) ORDER BY startDate ASC;");
 
 
 if(isset($_POST['myPlanLct'])>0)
