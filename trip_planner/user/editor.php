@@ -22,7 +22,7 @@ $plnDtl3 = mysqli_query($con,"SELECT * FROM attraction INNER JOIN user_plan ON a
 if(isset($_POST['submit'])>0)
 {	
 	$modDur = $_POST['modDur'];
-	$sltAttID = $_POST['sltAttID'];
+	// $sltAttID = $_POST['sltAttID'];
 	$sql4 = mysqli_query($con,"UPDATE `user_plan` SET `modDur` = '$modDur' WHERE planID = '$sltPln' AND attID = '$viewAtt';");
 	$con ->close();   
 	echo "<script>
@@ -126,6 +126,21 @@ if(isset($_POST['viewRv'])>0)
 			<?php
 			while($plnDtl3Lst = mysqli_fetch_array($plnDtl3)) 
 			{?>
+
+			<div class="info-box">
+			<h4>Duration</h4>
+			<h5>
+			<?php 					
+			if ($plnDtl3Lst['modDur'] == 0){
+				echo $plnDtl3Lst['rcmDur'];
+			}
+			else{
+				echo $plnDtl3Lst['modDur'];
+			}
+			?>
+			 hours</h5>
+			</div>
+
 			<div class="info-box">
 			<h4>Recommended duration</h4>
 			<h5><?php echo $plnDtl3Lst['rcmDur']; ?> hours</h5>
