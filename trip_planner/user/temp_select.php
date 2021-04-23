@@ -130,11 +130,6 @@ if(isset($_POST['retry'])>0)
 
 	<ul>
 	<a href="home.php" class="logo"><h1>Trip Planner</h1></a>
-	<!-- <li><a href="logout.php">Log Out</a></li>    
-	<li><a href="forum.php">Forum</a></li>
-	<li><a href="#new">New Post</a></li>
-	<li><a href="home.php">Home</a></li>
- -->
 	</ul>
 
 	<div class="bg-wrapper">

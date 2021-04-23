@@ -56,7 +56,7 @@ if(isset($_POST['myPlanLct'])>0)
                 <li><a href="logout.php">Log Out</a></li>    
                 <li><a href="forum.php">Forum</a></li>
                 <li><a href="edt_user.php">User Profile</a></li>
-
+                <li><a href="my_plans.php">My Plans</a></li>
                 <li><a href="home.php">Home</a></li>
         </ul>
 
@@ -183,7 +183,7 @@ if(isset($_POST['myPlanLct'])>0)
                         if (mysqli_num_rows($myPlan3) == 0){?>
                             <div>
                             <h3 class="none-header"><?php echo "None"; ?></h3>
-                            <a href="home.php" class="cr-span"><h4>Create some?</h4></a>
+                            <a href="home.php#comm-sec" class="cr-span"><h4>Browse some?</h4></a>
                             </div>
                             <?php
                         }

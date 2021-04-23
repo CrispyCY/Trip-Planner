@@ -124,7 +124,8 @@ if(isset($_POST['upV'])>0)
 	<a href="home.php" class="logo"><h1>Trip Planner</h1></a>
 	<li><a href="logout.php">Log Out</a></li>    
 	<li><a href="forum.php">Forum</a></li>
-	<li><a href="home.php">Home</a></li>	
+	<li><a href="home.php">Home</a></li>
+	<li><a href="my_plans.php">My Plans</a></li>	
 	<li><a href="#save">Save</a></li>
 	<li><a href="#top">Top</a></li>
 
@@ -197,7 +198,7 @@ if(isset($_POST['upV'])>0)
 						$tlhr += $ttlHr['modDur'];
 					}
 				}
-				echo $tlhr;
+				echo "<h3>".$tlhr." hr</h3>";
 				?>
 			</div>
 

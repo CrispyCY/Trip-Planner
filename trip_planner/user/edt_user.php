@@ -93,6 +93,7 @@ if(isset($_POST['edt_info']))
 	<li><a href="logout.php">Log Out</a></li>    
 	<li><a href="forum.php">Forum</a></li>
 	<li><a href="edt_user.php">User Profile</a></li>
+	<li><a href="my_plans.php">My Plans</a></li>
 	<li><a href="#edt">Edit User Profile</a></li>
 	<li><a href="home.php">Home</a></li>
 
