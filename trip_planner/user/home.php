@@ -35,8 +35,8 @@ $rand3 = $rand1 + $rand2;
 date_default_timezone_set("Asia/Kuala_Lumpur");
 $dtNow = date("Y-m-d");  
 
-$myPlan0 = mysqli_query($con,"SELECT COUNT(planID) AS plCount FROM plan WHERE userID = '$userID' ;");
-$allPlns = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE userID = '$userID' ORDER BY startDate ASC;");
+$myPlan0 = mysqli_query($con,"SELECT COUNT(planID) AS plCount FROM plan WHERE userID = '$userID';");
+$allPlns = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff FROM plan WHERE userID = '$userID' ORDER BY startDate ASC LIMIT 4;");
 
 
 if(isset($_POST['submit'])>0)
@@ -209,6 +209,7 @@ if(isset($_POST['cmPlans'])>0)
 			<li><a href="logout.php">Log Out</a></li>    
 			<li><a href="forum.php">Forum</a></li>
 			<li><a href="edt_user.php">User Profile</a></li>
+			<li><a href="my_plans.php">My Plans</a></li>
 			<li><a href="home.php">Home</a></li>
 		</ul>
 
@@ -342,7 +343,7 @@ if(isset($_POST['cmPlans'])>0)
 		<div class="sp-line">
 		</div>
 
-		<h2>Browse Community Plans</h2>
+		<h2 id="comm-sec">Browse Community Plans</h2>
 
 		<form action="" method="post" autocomplete="off">
 			<button class="br-wrapper" type="submit" value="st1" name="cmPlans">Perak</button>

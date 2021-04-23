@@ -144,7 +144,7 @@ if(isset($_POST['viewAtt'])>0)
 				<?php
 				while($ttlHr = mysqli_fetch_array($sql10))
 				{
-					echo "<h3>".$ttlHr['ttlDur']." hours</h3>";
+					echo "<h3>".$ttlHr['ttlDur']." hr</h3>";
 				}
 				?>
 			</div>

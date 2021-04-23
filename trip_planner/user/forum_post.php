@@ -11,7 +11,7 @@ $frView = $_SESSION['frView'];
 // echo $frView;
 
 date_default_timezone_set("Asia/Kuala_Lumpur");
-// $dtNow = date("Y-m-d");  
+$dtNow = date("Y-m-d");  
 
 $sltPost = mysqli_query($con,"SELECT * FROM 
 forum INNER JOIN user ON user.userID = forum.userID
@@ -60,6 +60,7 @@ if(isset($_POST['cmt'])>0)
 	<li><a href="logout.php">Log Out</a></li>    
 	<li><a href="forum.php">Forum</a></li>
 	<li><a href="edt_user.php">User Profile</a></li>
+	<li><a href="my_plans.php">My Plans</a></li>
 	<li><a href="home.php">Home</a></li>
 	<li><a href="#new">New Comment</a></li>
 

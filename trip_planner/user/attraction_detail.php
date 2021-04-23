@@ -8,7 +8,12 @@ include_once '../database.php';
 unset($_SESSION['addRv']);
 unset($_SESSION['viewRv']);
 
-$gen = $_SESSION['gen'];
+if(isset($_SESSION['gen'])>0){
+	$gen = $_SESSION['gen'];
+}
+else{
+	$gen = 'N';
+}
 $userID = $_SESSION['userID'];
 // echo $userID;
 // $sltPln = $_SESSION['sltPln'];
@@ -93,7 +98,7 @@ if(isset($_POST['viewRv'])>0)
 		<li><a href="logout.php">Log Out</a></li>    
 		<li><a href="forum.php">Forum</a></li>
 		<li><a href="edt_user.php">User Profile</a></li>
-	
+		<li><a href="my_plans.php">My Plans</a></li>
 		<li><a href="home.php">Home</a></li>	
 		';
 	}

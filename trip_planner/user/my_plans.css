@@ -131,7 +131,7 @@ color: black;
 	-webkit-align-items: stretch;
 	-ms-flex-align: stretch;
 	align-items: stretch;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 
 }
 
