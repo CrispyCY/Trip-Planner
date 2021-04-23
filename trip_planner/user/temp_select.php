@@ -31,6 +31,7 @@ $userCate= $_SESSION['usc'];
 $stateID= $_SESSION['stID'];
 // echo $stateID;
 
+$_SESSION['gen'] = 'Y';
 
 unset($_SESSION['view_temp']);
 

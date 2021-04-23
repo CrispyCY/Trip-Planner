@@ -42,10 +42,11 @@ if(isset($_POST['save_id'])>0)
     $svPln = mysqli_query($con,"INSERT INTO `user_plan`(`planID`, `attID`, `modDur`) SELECT `planID`, `attID`, 0 FROM `temp_up` WHERE tempID = '$view_temp';");
     $dltTemp = mysqli_query($con,"DELETE FROM `temp_up` WHERE planID = '$pl_id';");
 
+	$_SESSION['gen'] = 'N';
 
 	echo "<script>
 	 alert('Saved successfully!');
-	 window.location= 'home.php';
+	 window.location= 'my_plans.php';
 	</script>";
 }
 

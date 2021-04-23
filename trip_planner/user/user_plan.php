@@ -37,7 +37,7 @@ $sql8 = mysqli_query($con,"SELECT SUM(cost) AS ttlcost FROM attraction INNER JOI
 $sql9 = mysqli_query($con,"SELECT COUNT(user_plan.attID) AS ttlAtt FROM attraction INNER JOIN user_plan ON attraction.attID = user_plan.attID WHERE user_plan.planID = '$sltPln';");
 
 // total hr
-$sql10 = mysqli_query($con,"SELECT SUM(rcmDur) AS ttlDur FROM attraction INNER JOIN user_plan ON attraction.attID = user_plan.attID WHERE user_plan.planID = '$sltPln';");
+$sql10 = mysqli_query($con,"SELECT * FROM attraction INNER JOIN user_plan ON attraction.attID = user_plan.attID WHERE user_plan.planID = '$sltPln';");
 
 
 // share plan to community
@@ -213,10 +213,18 @@ if(isset($_POST['cost'])>0)
 			<div class="info-wrapper">
 				<h2>Total Trip Hours</h2>
 				<?php
+				$tlhr = 0;
 				while($ttlHr = mysqli_fetch_array($sql10))
 				{
-					echo "<h3>".$ttlHr['ttlDur']." hours</h3>";
+					if ($ttlHr['modDur'] == 0){
+						$tlhr += $ttlHr['rcmDur'];
+					}
+					else{
+						$tlhr += $ttlHr['modDur'];
+					}
 				}
+				echo $tlhr;
+
 				?>
 			</div>
 
