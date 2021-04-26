@@ -1,0 +1,97 @@
+body {
+    margin: 0%;
+    padding: 0%;
+    font-family: Lato,sans-serif ;
+	color: black;
+    background: rgba(0, 0, 0, 0.089);
+
+}
+
+.container{
+    padding: 3%;
+}
+
+.header-main{
+    color: black;
+    text-align: center;
+    font-size: x-large;
+}
+
+.header-wrapper{
+    color: black;
+}
+
+.content-wrapper{
+    color: black;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    /* text-shadow: 3px 3px 5px #666; */
+    font-family: Lato,sans-serif ;
+    display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: stretch;
+	-webkit-align-items: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch;
+}
+
+.descp-wrapper{
+    color: black;
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    /* text-shadow: 3px 3px 5px #666; */
+    font-family: Lato,sans-serif ;
+    flex-basis: 55%;
+    padding: 55px 30px 10px 30px;
+    border-right: solid;
+    /* border-style: solid; */
+    border-width: 2px;
+    /* border-radius: 5px; */
+
+}
+
+.login-wrapper{
+    font-size: large;
+    flex-basis: 45%;
+    padding: 10px 20px 10px 20px;
+
+}
+
+.login-form{
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.login-form h3{
+    font-size: x-large;
+}
+
+.login-form a{
+    color: black;
+}
+
+.login-form a:hover{
+    color: rgb(196, 186, 48);
+}
+
+.btnSubmit{
+    color: black;
+    padding: 7px 10px 7px 10px;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    font-family: Lato,sans-serif ;
+    background-color: white;
+    border: 0.5px solid black;
+    border-radius: 5px;
+}
+
