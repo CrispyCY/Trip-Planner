@@ -36,7 +36,7 @@ if(isset($_POST['frView'])>0)
 if(isset($_POST['frPost'])>0)
 {	
     $title=ucfirst($_POST['title']);
-    $content=ucfirst($_POST['content']);
+    $content=ucfirst($_POST['content']);	
     $newPost = mysqli_query($con,"INSERT INTO `forum` VALUES ('$frmID','$title','$content','$dtNow','$userID');");
 	echo "<script>
 	alert('Topic posted!');

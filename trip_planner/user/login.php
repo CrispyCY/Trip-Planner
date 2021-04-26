@@ -29,14 +29,16 @@ if(isset($_POST['submit']))
 				$username = $um['username'];
 			}
 			$myPlan = mysqli_query($con,"SELECT * FROM plan WHERE userID = '$userID' AND ('$dtNow' BETWEEN startDate AND endDate);");
+
 			if (mysqli_num_rows($myPlan) > 0)
 			{
 				while($myPlan = mysqli_fetch_array($myPlan)) 
 				{
 					$sltPln = $myPlan['planID'];
 					$_SESSION['sltPln']=$sltPln;
+					$planName = $myPlan['planName'];
 					echo"<script>
-					alert('Welcome back, $username. You have 1 ongoing plan.');
+					alert('Welcome back, $username. You have 1 ongoing plan: $planName');
 					window.location= 'user_plan.php';
 				</script>";
 	
