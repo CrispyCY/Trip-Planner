@@ -21,7 +21,7 @@ else{
 }
 
 
-$comPln = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff  FROM community INNER JOIN plan ON community.planID = plan.planID WHERE plan.location = '$location';");
+$comPln = mysqli_query($con,"SELECT *, DATEDIFF(plan.endDate, plan.startDate) AS DateDiff  FROM community INNER JOIN plan ON community.planID = plan.planID WHERE plan.location = '$location' ORDER BY comID DESC;");
 
 if(isset($_POST['viewPln'])>0)
 {	
